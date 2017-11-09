@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:maxHeight="30000dp"
+    android:maxWidth="30000dp"
+    android:minHeight="300dp"
+    android:minWidth="300dp"
+    tools:context="cos.premy.mines.graphics.GameActivity">
+
+    <view
+        android:id="@+id/mines"
+        class="cos.premy.mines.graphics.MinesView"
+        id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+</android.support.constraint.ConstraintLayout>
