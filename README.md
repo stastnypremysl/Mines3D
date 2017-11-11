@@ -32,5 +32,8 @@ There are 2 files:
 * Uživatelská dokumentace.pdf
 It's written in Czech and it is rather pies of garbage than serious documentation. There are no ambicions to write a better one, because a user himself should understand the application. (one of tasks of game)
 
+## Contributing
+In very improbable case you wanted contribute anything in this code, it should be writted in a rational way and it should work.
+
 ## Author
 Přemysl Šťastný
