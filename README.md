@@ -1,5 +1,5 @@
 # Mines3D
-Minesweeper on n*m*2 matrix for Android. The goal of the game is find the all of mines and mark them by long press. This is probably impossible without dicovering empty fields. When you double-tap on field without a mine[x,y,z], you shall get the number of mines in fields (if exists) [(x-1),y,z], [(x+1),y,z], [x,(y-1),z], [x,(y+1),z], [x, y, (z+1) mod 1]. I you double-tapped on field with mine, the game would ended.
+Minesweeper on n*m*2 matrix for Android. The goal of the game is find the all of mines and mark them by long press. This is probably impossible without dicovering empty fields. When you double-tap on field without a mine[x, y, z], you shall get the number of mines in fields (if exists) [(x-1), y, z], [(x+1), y, z], [x, (y-1), z], [x ,(y+1), z], [x, y, (z+1) mod 1]. I you double-tapped on field with mine, the game would ended.
 
 There are 5 modes with possible extension. 
   1) 5x5x2 with 7 mines
@@ -8,4 +8,5 @@ There are 5 modes with possible extension.
   4) 12x12x2 with 50 mines
   5) 15x15x2 with 90 mines
 
-I
+## Getting Started
+Download and install Android Studio 3.0. https://dl.google.com/dl/android/studio/install/3.0.0.18/android-studio-ide-171.4408382-windows.exe After that, install a virtual Android machine, optimally with version 7. You can use a real device too, but there must be installed Android newer then 4.4.
