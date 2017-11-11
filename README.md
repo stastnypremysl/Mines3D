@@ -30,6 +30,7 @@ Download repository and open root folder as project in Android Studio. Do Grandl
 There are 2 files:
 * Uživatelská dokumentace.docx
 * Uživatelská dokumentace.pdf
+
 It's written in Czech and it is rather pies of garbage than serious documentation. There are no ambicions to write a better one, because a user himself should understand the application. (one of tasks of game)
 
 ## License
@@ -37,6 +38,12 @@ This project is licensed under the GPL-3.0 License - see the [LICENSE.md](LICENS
 
 ## Contributing
 In very improbable case you wanted contribute anything in this code, it should be writted in a rational way and it should work.
+
+## Code description
+### Activities
+The MainActivity is menu, which is shown first. The GameActivity contains a view, where the game is played.
+### Static class - LoadedGame
+To prevent bugs coming from Android tendencies of endless reinicializations of Activity classes, the game data were moved to static class LoadedGame. There are no limitations coming from that, because only one game can be played in the same time.
 
 ## Author
 Přemysl Šťastný
