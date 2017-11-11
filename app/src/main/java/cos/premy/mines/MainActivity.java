@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
                 LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(12,12,36);
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(12,12,50);
 
                 startActivity(myIntent);
             }
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
                 LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(15,15,57);
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(15,15,90);
 
                 startActivity(myIntent);
             }
