@@ -51,8 +51,13 @@ You can find here the elemetal classes of the program.
  * LoadedGame - ...
  * MyHappyException - Exception class for throwing exceptions specific for this program
  * Utils - Any generaly useful code
- * MainActivity - Activity class, which defines modes of game
- * 
+ * MainActivity - An activity class, which defines modes of game
+ * GameStatus - The status of the running game. (things like a time of a start)
+### Package - cos.premy.mines.graphics
+ * GameActivity - An activity class, which runs a game view
+ * IDrawable - Interface, which is implemented by all of game components
+ * MinesView - The view in GameActivity, in which are inicialized, drawn, updated,... all of IDrawable
+ * Grid - 
 
 ## Author
 Přemysl Šťastný
