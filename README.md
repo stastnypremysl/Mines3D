@@ -57,7 +57,11 @@ You can find here the elemetal classes of the program.
  * GameActivity - An activity class, which runs a game view
  * IDrawable - Interface, which is implemented by all of game components
  * MinesView - The view in GameActivity, in which are inicialized, drawn, updated,... all of IDrawable
- * Grid - 
+ * Grid - It draws the grid and sends commands to mines fields.
+ * MineField - It draws one of mines. One instance is alwais paired with only one mine and with one MineField[x][y][(z+1)mod 1].
+ * MinesLayoutComputor - Stuff like margin of grid, size of grid,...
+ * StatusLabel - The text in the left corner.
+ * SwitchButton - The button, which switches the level(z) of grid.
 
 ## Author
 Přemysl Šťastný
