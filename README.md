@@ -45,5 +45,14 @@ The MainActivity is menu, which is shown first. The GameActivity contains a view
 ### Static class - LoadedGame
 To prevent bugs coming from Android tendencies of endless reinicializations of Activity classes, the game data were moved to static class LoadedGame. There are no limitations coming from that, because only one game can be played in the same time.
 
+There are saved 3 instances of 3 classes: GameStatus, MinesContainer, Activity (the last MainActivity loaded)
+### Package - cos.premy.mines
+You can find here the elemetal classes of the program.
+ * LoadedGame - ...
+ * MyHappyException - Exception class for throwing exceptions specific for this program
+ * Utils - Any generaly useful code
+ * MainActivity - Activity class, which defines modes of game
+ * 
+
 ## Author
 Přemysl Šťastný
