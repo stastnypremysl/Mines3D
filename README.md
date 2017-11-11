@@ -9,4 +9,4 @@ There are 5 modes with possible extension.
   5) 15x15x2 with 90 mines
 
 ## Getting Started
-Download and install Android Studio 3.0. https://dl.google.com/dl/android/studio/install/3.0.0.18/android-studio-ide-171.4408382-windows.exe After that, install a virtual Android machine, optimally with version 7. You can use a real device too, but there must be installed Android newer then 4.4.
+Download and install Android Studio 3.0. https://dl.google.com/dl/android/studio/install/3.0.0.18/android-studio-ide-171.4408382-windows.exe After that, install a virtual Android machine, optimally with version 7. You can use a real device too, but there must be installed Android newer then 4.4. A widescreen is required.
