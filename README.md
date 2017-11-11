@@ -26,5 +26,11 @@ Then install a virtual Android machine, optimally with version 7. You can use a 
 ### Building and running
 Download repository and open root folder as project in Android Studio. Do Grandle sync and clean'n'build. After that, you can try to run it on your device.
 
+## User documentation
+There are 2 files:
+* Uživatelská dokumentace.docx
+* Uživatelská dokumentace.pdf
+It's written in Czech and it is rather pies of garbage than serious documentation. There are no ambicions to write a better one, because a user himself should understand the application. (one of tasks of game)
+
 ## Author
 Přemysl Šťastný
