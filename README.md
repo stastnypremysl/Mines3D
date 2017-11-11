@@ -21,8 +21,10 @@ https://play.google.com/store/apps/details?id=cos.premy.mines&hl=en
 Download and install Android Studio 3.0:
 https://dl.google.com/dl/android/studio/install/3.0.0.18/android-studio-ide-171.4408382-windows.exe 
 
-After that, install a virtual Android machine, optimally with version 7. You can use a real device too, but there must be installed Android newer then 4.4. A widescreen is required.
+Then install a virtual Android machine, optimally with version 7. You can use a real device too, but there must be installed Android newer then 4.4. A widescreen is required.
 
 ### Building and running
-Download repository and open root folder as project in Android Studio. Do Grandle sync and clean'n'build. After that, you can try run it on device.
+Download repository and open root folder as project in Android Studio. Do Grandle sync and clean'n'build. After that, you can try to run it on your device.
 
+## Author
+Přemysl Šťastný
