@@ -166,6 +166,6 @@ public class MinesView extends View {
 
         grid.setPosition(layout.getGridX(), layout.getGridWidth(), layout.getGridY(), layout.getGridHeight());
         switchButton.setPosition(layout.getButtonX(), layout.getButtonWidth(), layout.getButtonY(), layout.getButtonHeight());
-        statusLabel.setPosition(layout.getStatusLabelX(),0,  layout.getStatusLabelY(), 0);
+        statusLabel.setPosition(layout.getStatusLabelX(),0,  layout.getStatusLabelY(), layout.getStatusHeight());
     }
 }

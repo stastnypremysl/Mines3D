@@ -13,7 +13,7 @@ import cos.premy.mines.data.MinesContainer;
  */
 
 public class StatusLabel implements IDrawable {
-    private static final int FONT_SIZE = 30;
+    private int fontSize = 30;
 
     private final MinesContainer minesContainer;
     private final GameStatus status;
@@ -30,7 +30,7 @@ public class StatusLabel implements IDrawable {
         paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);
-        paint.setTextSize(FONT_SIZE);
+        paint.setTextSize(fontSize);
         //paint.setTypeface(Typeface.create("Courier", Typeface.NORMAL));
     }
 
@@ -54,7 +54,7 @@ public class StatusLabel implements IDrawable {
         builder.append(minesContainer.getMinesNumber());
 
         toWrite = builder.toString();
-        canvas.drawText(toWrite, x, y + FONT_SIZE, paint);
+        canvas.drawText(toWrite, x, y + fontSize, paint);
 
     }
 
@@ -62,6 +62,9 @@ public class StatusLabel implements IDrawable {
     public void setPosition(int x, int width, int y, int height) {
         this.x = x;
         this.y = y;
+
+        this.fontSize = height;
+        paint.setTextSize(fontSize);
     }
 
     @Override
