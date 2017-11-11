@@ -62,6 +62,14 @@ You can find here the elemetal classes of the program.
  * MinesLayoutComputor - Stuff like margin of grid, size of grid,...
  * StatusLabel - The text in the left corner.
  * SwitchButton - The button, which switches the level(z) of grid.
-
+### Package - cos.premy.mines.graphics.animations
+It takes care for animations in program. It is easily understable from code.
+### Package - cos.premy.mines.generator
+ * MinesGenerator - Interface for problem generator
+ * RandomMinesGenerator - The actual generetor of all problems.
+### Package - cos.premy.mines.data
+ * Mine - the container for storing informations about one mine
+ * MinesContainer - the container for storing Mine
+ 
 ## Author
 Přemysl Šťastný
