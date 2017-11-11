@@ -10,9 +10,9 @@ There are 5 modes with possible extension.
 
 ## Getting Started
 ### Prerequisites
-Android Studio 3.0
-Device with Android newer then 4.4
-
+* Android Studio 3.0
+* Device with Android newer then 4.4
+            
 ### Installing
 Download and install Android Studio 3.0. https://dl.google.com/dl/android/studio/install/3.0.0.18/android-studio-ide-171.4408382-windows.exe 
 
