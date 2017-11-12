@@ -9,7 +9,7 @@ There are 5 modes with possible extension.
   5) 15x15x2 with 90 mines
 
 ## Google Play
-The application is published in Google Play. After any significant change of the project is rebuild and updated.
+The application is published in Google Play. After any significant change is the project rebuild and updated.
 https://play.google.com/store/apps/details?id=cos.premy.mines&hl=en
 
 ## Getting Started
