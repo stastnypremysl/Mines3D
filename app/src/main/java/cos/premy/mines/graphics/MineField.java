@@ -16,9 +16,8 @@ import cos.premy.mines.graphics.animations.Point;
  * Created by premy on 07.11.2017.
  */
 
-public class MineField implements IDrawable {
+public class MineField extends AbstractDrawable {
     private final Mine data;
-    private final GameStatus gameStatus;
     private MineField twin;
 
     private Line[] crossLines;
@@ -26,10 +25,6 @@ public class MineField implements IDrawable {
     private LineAnimation[] crossLinesAnimation;
     private LineAnimation[] minesLinesAnimation;
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
     private final int level;
 
     private static final int ANIMATION_DURATION = 100;
@@ -42,8 +37,8 @@ public class MineField implements IDrawable {
     private Paint paintLine;
 
     public MineField(Mine data, GameStatus status, final int level){
+        super(status);
         this.data = data;
-        this.gameStatus = status;
         this.level = level;
 
         paintLine = new Paint();
@@ -128,10 +123,7 @@ public class MineField implements IDrawable {
 
     @Override
     public void setPosition(int x, int width, int y, int height) {
-        this.x = x;
-        this.width = width;
-        this.y = y;
-        this.height = height;
+        super.setPosition(x, width, y, height);
 
         leftTopCorner = new Point(x, y);
         rightTopCorner = new Point(x + width, y);
@@ -142,37 +134,29 @@ public class MineField implements IDrawable {
         initAnimations();
     }
 
-    @Override
-    public void sendTap(int x, int y) {
 
+    @Override
+    protected void sendVerifiedLongTap(int x, int y) {
+        switch (data.getStatus()) {
+            case UNBLOCKED:
+                data.setGameStatus(MineStatus.BLOCKED, gameStatus);
+                break;
+            case BLOCKED:
+                data.setGameStatus(MineStatus.UNBLOCKED, gameStatus);
+                break;
+        }
+        refreshLines();
+        refreshAnimations();
     }
 
     @Override
-    public void sendLongTap(int x, int y) {
-        if(this.x <= x && this.width + this.x >= x && this.y <= y && this.height + this.y >= y) {
-            switch (data.getStatus()) {
-                case UNBLOCKED:
-                    data.setGameStatus(MineStatus.BLOCKED, gameStatus);
-                    break;
-                case BLOCKED:
-                    data.setGameStatus(MineStatus.UNBLOCKED, gameStatus);
-                    break;
-            }
+    protected void sendVerifiedDoubleTap(int x, int y) {
+        switch (data.getStatus()) {
+            case UNBLOCKED:
+            data.setGameStatus(MineStatus.OPENED, gameStatus);
             refreshLines();
             refreshAnimations();
-        }
-    }
-
-    @Override
-    public void sendDoubleTap(int x, int y) {
-        if(this.x <= x && this.width + this.x >= x && this.y <= y && this.height + this.y >= y) {
-            switch (data.getStatus()) {
-                case UNBLOCKED:
-                    data.setGameStatus(MineStatus.OPENED, gameStatus);
-                    refreshLines();
-                    refreshAnimations();
-                    break;
-            }
+            break;
         }
     }
 
@@ -218,5 +202,15 @@ public class MineField implements IDrawable {
         return minesLinesAnimation;
     }
 
+
+    @Override
+    public void sendTap(int x, int y) {
+
+    }
+
+    @Override
+    public void sendVerifiedTap(int x, int y){
+
+    }
 
 }
