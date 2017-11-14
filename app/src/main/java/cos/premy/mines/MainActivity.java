@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         initComponents();
         initActions();
 
+        if(LoadedGame.mainActivity == null){
+            ReviewReminder.startPotentialReviewReminding(this);
+        }
+
         LoadedGame.mainActivity = this;
 
         // Example of a call to a native method
