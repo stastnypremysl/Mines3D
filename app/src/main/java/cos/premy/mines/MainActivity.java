@@ -62,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
-                LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(5,5,7);
+                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
+                boolean hardcore = LoadedGame.gameStatus.getHardcore();
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(5,5,!hardcore ? 7: 7 * 3/2);
 
                 startActivity(myIntent);
             }
@@ -73,8 +74,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
-                LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(8,8,16);
+                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
+                boolean hardcore = LoadedGame.gameStatus.getHardcore();
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(8,8,!hardcore ? 16 : 16 * 3/2);
 
                 startActivity(myIntent);
             }
@@ -84,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
-                LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(10,10,25);
+                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
+                boolean hardcore = LoadedGame.gameStatus.getHardcore();
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(10,10,!hardcore ? 25 : 25 * 3/2);
 
                 startActivity(myIntent);
             }
@@ -95,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
-                LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(12,12,50);
+                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
+                boolean hardcore = LoadedGame.gameStatus.getHardcore();
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(12,12,!hardcore ? 50 : 50 * 3/2);
 
                 startActivity(myIntent);
             }
@@ -106,8 +110,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(thisActivity, GameActivity.class);
 
-                LoadedGame.gameStatus = new GameStatus();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(15,15,90);
+                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
+                boolean hardcore = LoadedGame.gameStatus.getHardcore();
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(15,15,!hardcore ? 90 : 90 * 3/2);
 
                 startActivity(myIntent);
             }

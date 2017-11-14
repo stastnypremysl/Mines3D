@@ -1,5 +1,9 @@
 package cos.premy.mines;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.util.Date;
 import java.util.Vector;
 
@@ -16,13 +20,25 @@ public class GameStatus {
     private final Vector<LevelSwitchListener> levelSwitchListenerVector;
     private final Vector<GameEndedListener> gameEndedListenerVector;
 
-    public GameStatus(){
+    private boolean useNumbers;
+    private boolean hardMode;
+    private boolean colored;
+
+    private SharedPreferences sharedPref;
+
+    public GameStatus(Activity activity){
         startTime = new Date();
         gameOver = false;
         hasUserWon = false;
         level = 0;
         levelSwitchListenerVector = new Vector<>();
         gameEndedListenerVector = new Vector<>();
+
+        sharedPref = activity.getSharedPreferences("cos.premy.mines.settings", Context.MODE_PRIVATE);
+    }
+
+    public boolean getHardcore(){
+        return sharedPref.getBoolean("hardcore", false);
     }
 
     public void endGame(boolean hasUserWon){
