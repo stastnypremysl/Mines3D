@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button start12x12;
     private Button start15x15;
     private Button howToPlay;
+    private Button options;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         start12x12 = findViewById(R.id.start12x12);
         start15x15 = findViewById(R.id.start15x15);
         howToPlay = findViewById(R.id.howToPlay);
+        options = findViewById(R.id.options);
     }
 
     private void initActions(){
@@ -107,6 +109,13 @@ public class MainActivity extends AppCompatActivity {
                 LoadedGame.gameStatus = new GameStatus();
                 LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(15,15,90);
 
+                startActivity(myIntent);
+            }
+        });
+        options.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(thisActivity, OptionActivity.class);
                 startActivity(myIntent);
             }
         });

@@ -62,6 +62,8 @@ public class ReviewReminder {
             int width = displayMetrics.widthPixels;
             int height = displayMetrics.heightPixels;
 
+
+
             TextView tv = new TextView(activity);
             tv.setText("If you enjoy using Mines3D, please take a moment to rate it. Thanks for your support!");
             tv.setWidth(width/2*3);
@@ -77,6 +79,7 @@ public class ReviewReminder {
                     dialog.dismiss();
                 }
             });
+            b1.setPadding(20, 20, 20, 10);
             ll.addView(b1);
 
             Button b2 = new Button(activity);
@@ -86,6 +89,7 @@ public class ReviewReminder {
                     dialog.dismiss();
                 }
             });
+            b2.setPadding(20, 20, 20, 10);
             ll.addView(b2);
 
             Button b3 = new Button(activity);
@@ -96,6 +100,7 @@ public class ReviewReminder {
                     dialog.dismiss();
                 }
             });
+            b3.setPadding(20, 20, 20, 10);
             ll.addView(b3);
 
             dialog.setContentView(ll);
