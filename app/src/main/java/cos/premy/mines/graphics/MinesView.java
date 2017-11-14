@@ -21,6 +21,7 @@ import cos.premy.mines.GameEndedListener;
 import cos.premy.mines.GameStatus;
 import cos.premy.mines.LoadedGame;
 import cos.premy.mines.R;
+import cos.premy.mines.ReviewReminder;
 import cos.premy.mines.Utils;
 import cos.premy.mines.data.MinesContainer;
 import cos.premy.mines.generator.RandomMinesGenerator;
@@ -76,6 +77,7 @@ public class MinesView extends View {
                 float lowest = sharedPref.getFloat("lowestTime", -1);
                 if(status.hasUserWon() && (lowest == -1 || lowest > diff)){
                     sharedPref.edit().putFloat("lowestTime", (float)diff).commit();
+                    ReviewReminder.setReadyForReview(LoadedGame.mainActivity);
                     message.append("\nNew record!");
                 }
                 if(lowest != -1){

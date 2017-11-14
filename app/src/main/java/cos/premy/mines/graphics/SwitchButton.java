@@ -13,13 +13,7 @@ import cos.premy.mines.graphics.animations.Point;
  * Created by premy on 07.11.2017.
  */
 
-public class SwitchButton implements IDrawable {
-
-    private int x;
-    private int y;
-    private int width;
-    private int height;
-
+public class SwitchButton extends AbstractDrawable {
     private Paint paintLine;
 
     private LineAnimation crossLine1 = null;
@@ -30,15 +24,13 @@ public class SwitchButton implements IDrawable {
     private Point leftBottomCorner = null;
     private Point rightBottomCorner = null;
 
-    private final GameStatus gameStatus;
-
     public SwitchButton(GameStatus gameStatus){
-        this.gameStatus = gameStatus;
+        super(gameStatus);
 
         paintLine = new Paint();
         paintLine.setAntiAlias(true);
         paintLine.setARGB(255,255,255,255);
-        paintLine.setStrokeWidth(3F);
+        paintLine.setStrokeWidth(4F);
     }
 
     @Override
@@ -56,10 +48,7 @@ public class SwitchButton implements IDrawable {
 
     @Override
     public void setPosition(int x, int width, int y, int height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        super.setPosition(x, width, y, height);
 
         leftTopCorner = new Point(x, y);
         rightTopCorner = new Point(x + width, y);
@@ -83,12 +72,10 @@ public class SwitchButton implements IDrawable {
     }
 
     @Override
-    public void sendTap(int x, int y) {
-        if(this.x <= x && this.width + this.x >= x && this.y <= y && this.height + this.y >= y) {
-            crossLine1.reverseAnimation();
-            crossLine2.reverseAnimation();
-            gameStatus.switchLevel();
-        }
+    protected void sendVerifiedTap(int x, int y) {
+        crossLine1.reverseAnimation();
+        crossLine2.reverseAnimation();
+        gameStatus.switchLevel();
     }
 
     @Override
@@ -98,6 +85,17 @@ public class SwitchButton implements IDrawable {
 
     @Override
     public void sendDoubleTap(int x, int y) {
+
+    }
+
+
+    @Override
+    protected void sendVerifiedLongTap(int x, int y) {
+
+    }
+
+    @Override
+    protected void sendVerifiedDoubleTap(int x, int y) {
 
     }
 }

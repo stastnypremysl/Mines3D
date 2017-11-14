@@ -12,20 +12,15 @@ import cos.premy.mines.data.MinesContainer;
  * Created by premy on 09.11.2017.
  */
 
-public class StatusLabel implements IDrawable {
+public class StatusLabel extends AbstractDrawable {
     private int fontSize = 30;
-
     private final MinesContainer minesContainer;
-    private final GameStatus status;
-
-    private int x;
-    private int y;
 
     private final Paint paint;
 
     public StatusLabel(MinesContainer minesContainer, GameStatus status){
+        super(status);
         this.minesContainer = minesContainer;
-        this.status = status;
 
         paint = new Paint();
         paint.setColor(Color.WHITE);
@@ -39,7 +34,7 @@ public class StatusLabel implements IDrawable {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Time: ");
-        long delta = System.currentTimeMillis() - status.getStartTime().getTime();
+        long delta = System.currentTimeMillis() - gameStatus.getStartTime().getTime();
         double reducedDelta = delta;
         reducedDelta /= 100;
         builder.append(reducedDelta);
@@ -60,8 +55,7 @@ public class StatusLabel implements IDrawable {
 
     @Override
     public void setPosition(int x, int width, int y, int height) {
-        this.x = x;
-        this.y = y;
+        super.setPosition(x, width, y, height);
 
         this.fontSize = height;
         paint.setTextSize(fontSize);
@@ -79,6 +73,21 @@ public class StatusLabel implements IDrawable {
 
     @Override
     public void sendDoubleTap(int x, int y) {
+
+    }
+
+    @Override
+    protected void sendVerifiedTap(int x, int y) {
+
+    }
+
+    @Override
+    protected void sendVerifiedLongTap(int x, int y) {
+
+    }
+
+    @Override
+    protected void sendVerifiedDoubleTap(int x, int y) {
 
     }
 }
