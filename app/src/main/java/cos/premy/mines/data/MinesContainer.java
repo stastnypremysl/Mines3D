@@ -1,6 +1,7 @@
 package cos.premy.mines.data;
 
 import cos.premy.mines.GameStatus;
+import cos.premy.mines.MyHappyException;
 
 /**
  * Created by premy on 07.11.2017.
@@ -34,6 +35,14 @@ public class MinesContainer {
                 mines[i][ii] = new Mine[M];
                 for(int iii = 0; iii != M; iii++){
                     mines[i][ii][iii] = new Mine();
+                    //DEBUG
+                    /*try {
+                        mines[i][ii][iii].setStatus(MineStatus.OPENED);
+                    }
+                    catch (MyHappyException ex){
+
+                    }*/
+                    //
                 }
             }
         }

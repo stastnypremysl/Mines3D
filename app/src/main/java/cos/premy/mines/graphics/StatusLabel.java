@@ -36,7 +36,7 @@ public class StatusLabel extends AbstractDrawable {
         builder.append("Time: ");
         long delta = System.currentTimeMillis() - gameStatus.getStartTime().getTime();
         double reducedDelta = delta;
-        reducedDelta /= 100;
+        reducedDelta /= 1000;
         builder.append(reducedDelta);
 
         String toWrite = builder.toString();

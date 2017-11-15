@@ -73,7 +73,7 @@ public class OptionActivity extends AppCompatActivity {
         numberType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(color.isChecked()){
+                if(numberType.isChecked()){
                     sharedPref.edit().putBoolean("numberType", true).commit();
                 }
                 else {

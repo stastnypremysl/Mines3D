@@ -94,6 +94,7 @@ public class MineField extends AbstractDrawable {
                 }
             }
         });
+
     }
 
     private void initLines(){
@@ -117,14 +118,85 @@ public class MineField extends AbstractDrawable {
             case OPENED:
                 crossLines[0] = new Line(leftTopCorner, rightTopCorner);
                 crossLines[1] = new Line(leftBottomCorner, rightBottomCorner);
-                for(int i = 0; i != data.getNeighbors(); i++){
-                    int xL = x + (width*(i+1))/(data.getNeighbors() + 1);
-                    Point top = new Point(xL, y);
-                    Point bottom = new Point(xL, y + height);
-                    minesLines[i] = new Line(top, bottom);
+                if(numberType){
+                    if(data.getNeighbors() == 0){
+                        for (int i = 0; i != 5; i++) {
+                            minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                        }
+                        break;
+                    }
+                    minesLines[0] = new Line(
+                            new Point(this.x + this.width*3/10, this.y + this.height/5),
+                            new Point(this.x + this.width*7/10, this.y + this.height/5));
+                    minesLines[1] = new Line(
+                            new Point(this.x + this.width*3/10, this.y + this.height*4/5),
+                            new Point(this.x + this.width*7/10, this.y + this.height*4/5));
+                    switch (data.getNeighbors()){
+                        case 1:
+                            minesLines[2] = new Line(
+                                new Point(this.x + this.width/2, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            for (int i = 3; i != 5; i++) {
+                                minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                            }
+                            break;
+                        case 2:
+                            minesLines[2] = new Line(
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*4/5));
+                            for (int i = 4; i != 5; i++) {
+                                minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                            }
+                            break;
+                        case 3:
+                            minesLines[2] = new Line(
+                                    new Point(this.x + this.width/2, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*4/5));
+                            minesLines[4] = new Line(
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*4/5));
+                            break;
+                        case 4:
+                            minesLines[2] = new Line(
+                                    new Point(this.x + this.width/2 - this.width*2/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2 + this.width*2/40, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                    new Point(this.x + this.width/2 + this.width*6/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2 + this.width*2/40, this.y + this.height*4/5));
+                            minesLines[4] = new Line(
+                                    new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*4/5));
+                            break;
+                        case 5:
+                            minesLines[2] = new Line(
+                                    new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                    new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            for (int i = 4; i != 5; i++) {
+                                minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                            }
+                            break;
+
+                    }
                 }
-                for(int i = data.getNeighbors(); i != 5; i++){
-                    minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                else {
+                    for (int i = 0; i != data.getNeighbors(); i++) {
+                        int xL = x + (width * (i + 1)) / (data.getNeighbors() + 1);
+                        Point top = new Point(xL, y);
+                        Point bottom = new Point(xL, y + height);
+                        minesLines[i] = new Line(top, bottom);
+                    }
+                    for (int i = data.getNeighbors(); i != 5; i++) {
+                        minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                    }
                 }
                 break;
             case UNBLOCKED:
