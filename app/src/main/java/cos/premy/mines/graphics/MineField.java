@@ -1,6 +1,7 @@
 package cos.premy.mines.graphics;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 import cos.premy.mines.GameStatus;
@@ -34,17 +35,55 @@ public class MineField extends AbstractDrawable {
     private Point leftBottomCorner = null;
     private Point rightBottomCorner = null;
 
-    private Paint paintLine;
+    private Paint white;
+    private Paint red;
+    private Paint blue;
+    private Paint green;
+    private Paint cyan;
+    private Paint magenta;
+
+    private final boolean colored;
+    private final boolean numberType;
+
 
     public MineField(Mine data, GameStatus status, final int level){
         super(status);
         this.data = data;
         this.level = level;
+        colored = status.getColored();
+        numberType = status.getNumberType();
 
-        paintLine = new Paint();
-        paintLine.setAntiAlias(true);
-        paintLine.setARGB(255,255,255,255);
-        paintLine.setStrokeWidth(3F);
+        white = new Paint();
+        white.setAntiAlias(true);
+        white.setARGB(255,255,255,255);
+        white.setStrokeWidth(3F);
+
+        if(colored) {
+            red = new Paint();
+            red.setAntiAlias(true);
+            red.setColor(Color.RED);
+            red.setStrokeWidth(3F);
+
+            blue = new Paint();
+            blue.setAntiAlias(true);
+            blue.setColor(Color.BLUE);
+            blue.setStrokeWidth(3F);
+
+            green = new Paint();
+            green.setAntiAlias(true);
+            green.setColor(Color.GREEN);
+            green.setStrokeWidth(3F);
+
+            cyan = new Paint();
+            cyan.setAntiAlias(true);
+            cyan.setColor(Color.CYAN);
+            cyan.setStrokeWidth(3F);
+
+            magenta = new Paint();
+            magenta.setAntiAlias(true);
+            magenta.setColor(Color.MAGENTA);
+            magenta.setStrokeWidth(3F);
+        }
 
         status.addLevelSwitchListener(new LevelSwitchListener() {
             @Override
@@ -55,6 +94,7 @@ public class MineField extends AbstractDrawable {
                 }
             }
         });
+
     }
 
     private void initLines(){
@@ -78,14 +118,85 @@ public class MineField extends AbstractDrawable {
             case OPENED:
                 crossLines[0] = new Line(leftTopCorner, rightTopCorner);
                 crossLines[1] = new Line(leftBottomCorner, rightBottomCorner);
-                for(int i = 0; i != data.getNeighbors(); i++){
-                    int xL = x + (width*(i+1))/(data.getNeighbors() + 1);
-                    Point top = new Point(xL, y);
-                    Point bottom = new Point(xL, y + height);
-                    minesLines[i] = new Line(top, bottom);
+                if(numberType){
+                    if(data.getNeighbors() == 0){
+                        for (int i = 0; i != 5; i++) {
+                            minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                        }
+                        break;
+                    }
+                    minesLines[0] = new Line(
+                            new Point(this.x + this.width*3/10, this.y + this.height/5),
+                            new Point(this.x + this.width*7/10, this.y + this.height/5));
+                    minesLines[1] = new Line(
+                            new Point(this.x + this.width*3/10, this.y + this.height*4/5),
+                            new Point(this.x + this.width*7/10, this.y + this.height*4/5));
+                    switch (data.getNeighbors()){
+                        case 1:
+                            minesLines[2] = new Line(
+                                new Point(this.x + this.width/2, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            for (int i = 3; i != 5; i++) {
+                                minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                            }
+                            break;
+                        case 2:
+                            minesLines[2] = new Line(
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*4/5));
+                            for (int i = 4; i != 5; i++) {
+                                minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                            }
+                            break;
+                        case 3:
+                            minesLines[2] = new Line(
+                                    new Point(this.x + this.width/2, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*4/5));
+                            minesLines[4] = new Line(
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*1/5),
+                                new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*4/5));
+                            break;
+                        case 4:
+                            minesLines[2] = new Line(
+                                    new Point(this.x + this.width/2 - this.width*2/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2 + this.width*2/40, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                    new Point(this.x + this.width/2 + this.width*6/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2 + this.width*2/40, this.y + this.height*4/5));
+                            minesLines[4] = new Line(
+                                    new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*4/5));
+                            break;
+                        case 5:
+                            minesLines[2] = new Line(
+                                    new Point(this.x + this.width/2 - this.width*4/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            minesLines[3] = new Line(
+                                    new Point(this.x + this.width/2 + this.width*4/40, this.y + this.height*1/5),
+                                    new Point(this.x + this.width/2, this.y + this.height*4/5));
+                            for (int i = 4; i != 5; i++) {
+                                minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                            }
+                            break;
+
+                    }
                 }
-                for(int i = data.getNeighbors(); i != 5; i++){
-                    minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                else {
+                    for (int i = 0; i != data.getNeighbors(); i++) {
+                        int xL = x + (width * (i + 1)) / (data.getNeighbors() + 1);
+                        Point top = new Point(xL, y);
+                        Point bottom = new Point(xL, y + height);
+                        minesLines[i] = new Line(top, bottom);
+                    }
+                    for (int i = data.getNeighbors(); i != 5; i++) {
+                        minesLines[i] = new Line(leftTopCorner, leftBottomCorner);
+                    }
                 }
                 break;
             case UNBLOCKED:
@@ -111,13 +222,37 @@ public class MineField extends AbstractDrawable {
 
     @Override
     public void draw(Canvas canvas) {
+        Paint drawPaint = white;
         for(int i = 0; i != 2; i++){
             Line line = crossLinesAnimation[i].getLine();
-            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, paintLine);
+            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, drawPaint);
+        }
+
+        if(data.getStatus() == MineStatus.OPENED && colored){
+            switch (data.getNeighbors()){
+                case 1:
+                    drawPaint = red;
+                    break;
+                case 2:
+                    drawPaint = blue;
+                    break;
+                case 3:
+                    drawPaint = green;
+                    break;
+                case 4:
+                    drawPaint = cyan;
+                    break;
+                case 5:
+                    drawPaint = magenta;
+                    break;
+            }
         }
         for(int i = 0; i != 5; i++){
             Line line = minesLinesAnimation[i].getLine();
-            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, paintLine);
+            if(line.start.X == this.x && line.start.Y == this.y && line.end.X == this.x){
+                break;
+            }
+            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, drawPaint);
         }
     }
 

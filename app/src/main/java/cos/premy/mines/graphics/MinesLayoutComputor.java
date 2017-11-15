@@ -133,7 +133,7 @@ class MinesLayoutComputor {
     }
 
     int getStatusHeight() {
-        return (min(width, height) * 30) / 1440;
+        return (min(width, height) * 30) / 1100;
     }
 
 }
