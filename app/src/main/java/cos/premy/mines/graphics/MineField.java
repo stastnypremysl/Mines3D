@@ -1,6 +1,7 @@
 package cos.premy.mines.graphics;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 import cos.premy.mines.GameStatus;
@@ -34,17 +35,55 @@ public class MineField extends AbstractDrawable {
     private Point leftBottomCorner = null;
     private Point rightBottomCorner = null;
 
-    private Paint paintLine;
+    private Paint white;
+    private Paint red;
+    private Paint blue;
+    private Paint green;
+    private Paint cyan;
+    private Paint magenta;
+
+    private final boolean colored;
+    private final boolean numberType;
+
 
     public MineField(Mine data, GameStatus status, final int level){
         super(status);
         this.data = data;
         this.level = level;
+        colored = status.getColored();
+        numberType = status.getNumberType();
 
-        paintLine = new Paint();
-        paintLine.setAntiAlias(true);
-        paintLine.setARGB(255,255,255,255);
-        paintLine.setStrokeWidth(3F);
+        white = new Paint();
+        white.setAntiAlias(true);
+        white.setARGB(255,255,255,255);
+        white.setStrokeWidth(3F);
+
+        if(colored) {
+            red = new Paint();
+            red.setAntiAlias(true);
+            red.setColor(Color.RED);
+            red.setStrokeWidth(3F);
+
+            blue = new Paint();
+            blue.setAntiAlias(true);
+            blue.setColor(Color.BLUE);
+            blue.setStrokeWidth(3F);
+
+            green = new Paint();
+            green.setAntiAlias(true);
+            green.setColor(Color.GREEN);
+            green.setStrokeWidth(3F);
+
+            cyan = new Paint();
+            cyan.setAntiAlias(true);
+            cyan.setColor(Color.CYAN);
+            cyan.setStrokeWidth(3F);
+
+            magenta = new Paint();
+            magenta.setAntiAlias(true);
+            magenta.setColor(Color.MAGENTA);
+            magenta.setStrokeWidth(3F);
+        }
 
         status.addLevelSwitchListener(new LevelSwitchListener() {
             @Override
@@ -111,13 +150,37 @@ public class MineField extends AbstractDrawable {
 
     @Override
     public void draw(Canvas canvas) {
+        Paint drawPaint = white;
         for(int i = 0; i != 2; i++){
             Line line = crossLinesAnimation[i].getLine();
-            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, paintLine);
+            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, drawPaint);
+        }
+
+        if(data.getStatus() == MineStatus.OPENED && colored){
+            switch (data.getNeighbors()){
+                case 1:
+                    drawPaint = red;
+                    break;
+                case 2:
+                    drawPaint = blue;
+                    break;
+                case 3:
+                    drawPaint = green;
+                    break;
+                case 4:
+                    drawPaint = cyan;
+                    break;
+                case 5:
+                    drawPaint = magenta;
+                    break;
+            }
         }
         for(int i = 0; i != 5; i++){
             Line line = minesLinesAnimation[i].getLine();
-            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, paintLine);
+            if(line.start.X == this.x && line.start.Y == this.y && line.end.X == this.x){
+                break;
+            }
+            canvas.drawLine(line.start.X, line.start.Y, line.end.X, line.end.Y, drawPaint);
         }
     }
 

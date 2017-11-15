@@ -41,6 +41,14 @@ public class GameStatus {
         return sharedPref.getBoolean("hardcore", false);
     }
 
+    public boolean getNumberType(){
+        return sharedPref.getBoolean("numberType", false);
+    }
+
+    public boolean getColored(){
+        return sharedPref.getBoolean("colored", false);
+    }
+
     public void endGame(boolean hasUserWon){
         gameOver = true;
         this.hasUserWon = hasUserWon;

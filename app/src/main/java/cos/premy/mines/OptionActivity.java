@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class OptionActivity extends AppCompatActivity {
 
     private ToggleButton hardcore;
+    private ToggleButton color;
+    private ToggleButton numberType;
     private SharedPreferences sharedPref;
 
 
@@ -32,6 +34,9 @@ public class OptionActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Options");
 
         hardcore = findViewById(R.id.mode);
+        color = findViewById(R.id.color);
+        numberType = findViewById(R.id.numberType);
+
         if(sharedPref.getBoolean("hardcore", false)){
             hardcore.toggle();
         }
@@ -46,6 +51,37 @@ public class OptionActivity extends AppCompatActivity {
                 }
             }
         });
+
+        if(sharedPref.getBoolean("colored", false)){
+            color.toggle();
+        }
+        color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(color.isChecked()){
+                    sharedPref.edit().putBoolean("colored", true).commit();
+                }
+                else {
+                    sharedPref.edit().putBoolean("colored", false).commit();
+                }
+            }
+        });
+
+        if(sharedPref.getBoolean("numberType", false)){
+            numberType.toggle();
+        }
+        numberType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(color.isChecked()){
+                    sharedPref.edit().putBoolean("numberType", true).commit();
+                }
+                else {
+                    sharedPref.edit().putBoolean("numberType", false).commit();
+                }
+            }
+        });
+
     }
 
 }
