@@ -14,7 +14,7 @@ https://play.google.com/store/apps/details?id=cos.premy.mines&hl=en
 
 ## Getting Started
 ### Prerequisites
-* Android Studio 3.0
+* Android Studio 3.5.3
 * Device with Android newer then 4.4
             
 ### Installing
