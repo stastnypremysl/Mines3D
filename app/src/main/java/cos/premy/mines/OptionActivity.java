@@ -17,6 +17,7 @@ public class OptionActivity extends AppCompatActivity {
     private ToggleButton hardcore;
     private ToggleButton color;
     private ToggleButton numberType;
+    private ToggleButton flood;
     private SharedPreferences sharedPref;
 
 
@@ -36,6 +37,7 @@ public class OptionActivity extends AppCompatActivity {
         hardcore = findViewById(R.id.mode);
         color = findViewById(R.id.color);
         numberType = findViewById(R.id.numberType);
+        flood = findViewById(R.id.flood);
 
         if(sharedPref.getBoolean("hardcore", false)){
             hardcore.toggle();
@@ -78,6 +80,21 @@ public class OptionActivity extends AppCompatActivity {
                 }
                 else {
                     sharedPref.edit().putBoolean("numberType", false).commit();
+                }
+            }
+        });
+
+        if(sharedPref.getBoolean("flood", false)){
+            flood.toggle();
+        }
+        flood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(flood.isChecked()){
+                    sharedPref.edit().putBoolean("flood", true).commit();
+                }
+                else {
+                    sharedPref.edit().putBoolean("flood", false).commit();
                 }
             }
         });
