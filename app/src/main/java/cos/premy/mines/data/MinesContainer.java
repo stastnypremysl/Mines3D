@@ -110,29 +110,27 @@ public class MinesContainer {
         }
     }
 
-    private int getNumberOfNeighbors(int z, int y, int x){
-        int ret = 0;
+    private void setMineNeighbors(int z, int y, int x){
+        Mine thisMine = mines[z][y][x];
         if(y > 0 && mines[z][y-1][x].getIsReal()){
-            ret++;
+            thisMine.setNeighborCoord(new MineNeighbor(x, y-1, z));
         }
 
         if(y != height - 1 && mines[z][y+1][x].getIsReal()){
-            ret++;
+            thisMine.setNeighborCoord(new MineNeighbor(x, y+1, z));
         }
 
         if(x > 0 && mines[z][y][x-1].getIsReal()){
-            ret++;
+            thisMine.setNeighborCoord(new MineNeighbor(x-1, y, z));
         }
 
         if(x != width - 1 && mines[z][y][x+1].getIsReal()){
-            ret++;
+            thisMine.setNeighborCoord(new MineNeighbor(x+1, y, z));
         }
 
         if(mines[(z+1)%2][y][x].getIsReal()){
-            ret++;
+            thisMine.setNeighborCoord(new MineNeighbor(x, y, (z+1)%2));
         }
-
-        return ret;
     }
 
 
@@ -156,7 +154,8 @@ public class MinesContainer {
         for(int i = 0; i != 2; i++){
             for(int ii = 0; ii != height; ii++){
                 for(int iii = 0; iii != width; iii++){
-                    mines[i][ii][iii].setFactorized(getNumberOfNeighbors(i, ii, iii));
+                    setMineNeighbors(i,ii,iii);
+                    mines[i][ii][iii].setFactorized();
                 }
             }
         }
