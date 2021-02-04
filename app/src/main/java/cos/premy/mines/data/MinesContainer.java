@@ -1,6 +1,7 @@
 package cos.premy.mines.data;
 
 import cos.premy.mines.GameStatus;
+import cos.premy.mines.MyHappyException;
 
 /**
  * Created by premy on 07.11.2017.
