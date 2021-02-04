@@ -18,6 +18,7 @@ import cos.premy.mines.graphics.animations.Point;
  */
 
 public class MineField extends AbstractDrawable {
+    private final Grid grid;
     private final Mine data;
     private MineField twin;
 
@@ -46,8 +47,9 @@ public class MineField extends AbstractDrawable {
     private final boolean numberType;
 
 
-    public MineField(Mine data, GameStatus status, final int level){
+    public MineField(Grid grid, Mine data, GameStatus status, final int level){
         super(status);
+        this.grid = grid;
         this.data = data;
         this.level = level;
         colored = status.getColored();
@@ -291,6 +293,9 @@ public class MineField extends AbstractDrawable {
             data.setGameStatus(MineStatus.OPENED, gameStatus);
             refreshLines();
             refreshAnimations();
+            if (gameStatus.getFlood() && (data.getNeighbors() == 0)) {
+                grid.autoFlood(data.getAllNeighborCoords());
+            }
             break;
         }
     }

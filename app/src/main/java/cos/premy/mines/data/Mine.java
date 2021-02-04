@@ -14,7 +14,8 @@ public class Mine {
     private boolean factorized;
     private MineStatus status;
     private Vector<MineStatusChangedListener> mineStatusChangedListenerVector;
-    private Vector<MineNeighbor> neighborCoords;
+    private Vector<MineCoord> allNeighborCoords;
+    private Vector<MineCoord> neighborMinesCoords;
 
     public Mine() {
         this(false);
@@ -24,7 +25,8 @@ public class Mine {
         this.isReal = isReal;
         status = MineStatus.UNBLOCKED;
         mineStatusChangedListenerVector = new Vector<>();
-        neighborCoords = new Vector<>();
+        allNeighborCoords = new Vector<>();
+        neighborMinesCoords = new Vector<>();
     }
 
     public boolean getIsReal(){
@@ -38,8 +40,14 @@ public class Mine {
         this.isReal = isReal;
     }
 
-    public void setNeighborCoord( MineNeighbor other ){
-        neighborCoords.add(other);
+    public void setNeighborCoord( MineCoord other ){
+        allNeighborCoords.add(other);
+    }
+
+    public Vector<MineCoord> getAllNeighborCoords() { return allNeighborCoords; }
+
+    public void setNeighborMineCoord( MineCoord other ){
+        neighborMinesCoords.add(other);
     }
 
     public void setFactorized(){
@@ -47,7 +55,7 @@ public class Mine {
     }
 
     public int getNeighbors(){
-        return neighborCoords.size();
+        return neighborMinesCoords.size();
     }
 
     public MineStatus getStatus(){
