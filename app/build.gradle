@@ -6,12 +6,12 @@ android {
         applicationId "cos.premy.mines"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 4
-        versionName '1.2.1'
+        versionCode 5
+        versionName '1.4'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++14 -frtti -fexceptions"
+                cppFlags "-std=c++17 -frtti -fexceptions"
             }
         }
     }
