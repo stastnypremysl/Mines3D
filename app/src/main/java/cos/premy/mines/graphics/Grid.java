@@ -1,11 +1,13 @@
 package cos.premy.mines.graphics;
 
+import java.util.Vector;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import cos.premy.mines.GameStatus;
 import cos.premy.mines.data.MinesContainer;
+import cos.premy.mines.data.MineCoord;
 
 /**
  * Created by premy on 07.11.2017.
@@ -38,7 +40,7 @@ public class Grid extends AbstractDrawable {
             for(int ii = 0; ii != N; ii++){
                 mineFields[i][ii] = new MineField[M];
                 for(int iii = 0; iii != M; iii++){
-                    mineFields[i][ii][iii] = new MineField(container.getMine(i, ii, iii), gameStatus, i);
+                    mineFields[i][ii][iii] = new MineField(this, container.getMine(i, ii, iii), gameStatus, i);
                     mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
                 }
             }
@@ -49,6 +51,15 @@ public class Grid extends AbstractDrawable {
                 for(int iii = 0; iii != M; iii++){
                     mineFields[i][ii][iii].setTwin(mineFields[(i+1)%2][ii][iii]);
                 }
+            }
+        }
+    }
+
+    public void autoFlood(Vector<MineCoord> floodTargets) {
+        if (gameStatus.getFlood()) {
+            for (MineCoord mineCoord: floodTargets) {
+                MineField target = mineFields[mineCoord.z][mineCoord.y][mineCoord.x];
+                target.sendDoubleTap(target.x, target.y);
             }
         }
     }

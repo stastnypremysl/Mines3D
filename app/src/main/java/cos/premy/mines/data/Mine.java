@@ -12,9 +12,10 @@ import cos.premy.mines.MyHappyException;
 public class Mine {
     private boolean isReal;
     private boolean factorized;
-    private int neighbors;
     private MineStatus status;
     private Vector<MineStatusChangedListener> mineStatusChangedListenerVector;
+    private Vector<MineCoord> allNeighborCoords;
+    private Vector<MineCoord> neighborMinesCoords;
 
     public Mine() {
         this(false);
@@ -23,8 +24,9 @@ public class Mine {
     public Mine(boolean isReal){
         this.isReal = isReal;
         status = MineStatus.UNBLOCKED;
-        neighbors = 0;
         mineStatusChangedListenerVector = new Vector<>();
+        allNeighborCoords = new Vector<>();
+        neighborMinesCoords = new Vector<>();
     }
 
     public boolean getIsReal(){
@@ -38,13 +40,22 @@ public class Mine {
         this.isReal = isReal;
     }
 
-    public void setFactorized(int neighbors){
+    public void setNeighborCoord( MineCoord other ){
+        allNeighborCoords.add(other);
+    }
+
+    public Vector<MineCoord> getAllNeighborCoords() { return allNeighborCoords; }
+
+    public void setNeighborMineCoord( MineCoord other ){
+        neighborMinesCoords.add(other);
+    }
+
+    public void setFactorized(){
         factorized = true;
-        this.neighbors = neighbors;
     }
 
     public int getNeighbors(){
-        return neighbors;
+        return neighborMinesCoords.size();
     }
 
     public MineStatus getStatus(){

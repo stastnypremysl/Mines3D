@@ -23,6 +23,7 @@ public class GameStatus {
     private boolean useNumbers;
     private boolean hardMode;
     private boolean colored;
+    private boolean flood;
 
     private SharedPreferences sharedPref;
 
@@ -48,6 +49,8 @@ public class GameStatus {
     public boolean getColored(){
         return sharedPref.getBoolean("colored", false);
     }
+
+    public boolean getFlood() { return sharedPref.getBoolean("flood", false); }
 
     public void endGame(boolean hasUserWon){
         gameOver = true;

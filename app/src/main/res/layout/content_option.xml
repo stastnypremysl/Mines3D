@@ -54,6 +54,14 @@
                     android:text="ToggleButton"
                     android:textOff="LINE"
                     android:textOn="NUMBER" />
+
+                <ToggleButton
+                    android:id="@+id/flood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ToggleButton"
+                    android:textOff="Manual Flood"
+                    android:textOn="Auto Flood" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

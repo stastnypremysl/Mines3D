@@ -110,29 +110,40 @@ public class MinesContainer {
         }
     }
 
-    private int getNumberOfNeighbors(int z, int y, int x){
-        int ret = 0;
-        if(y > 0 && mines[z][y-1][x].getIsReal()){
-            ret++;
+    private void setMineNeighbors(int z, int y, int x){
+        Mine thisMine = mines[z][y][x];
+        if(y > 0){
+            thisMine.setNeighborCoord(new MineCoord(x, y-1, z));
+            if(mines[z][y-1][x].getIsReal()){
+                thisMine.setNeighborMineCoord(new MineCoord(x, y-1, z));
+            }
         }
 
-        if(y != height - 1 && mines[z][y+1][x].getIsReal()){
-            ret++;
+        if(y != height - 1){
+            thisMine.setNeighborCoord(new MineCoord(x, y+1, z));
+            if(mines[z][y+1][x].getIsReal()){
+                thisMine.setNeighborMineCoord(new MineCoord(x, y+1, z));
+            }
         }
 
-        if(x > 0 && mines[z][y][x-1].getIsReal()){
-            ret++;
+        if(x > 0){
+            thisMine.setNeighborCoord(new MineCoord(x-1, y, z));
+            if(mines[z][y][x-1].getIsReal()){
+                thisMine.setNeighborMineCoord(new MineCoord(x-1, y, z));
+            }
         }
 
-        if(x != width - 1 && mines[z][y][x+1].getIsReal()){
-            ret++;
+        if(x != width - 1){
+            thisMine.setNeighborCoord(new MineCoord(x+1, y, z));
+            if(mines[z][y][x+1].getIsReal()){
+                thisMine.setNeighborMineCoord(new MineCoord(x+1, y, z));
+            }
         }
 
+        thisMine.setNeighborCoord(new MineCoord(x, y, (z+1)%2));
         if(mines[(z+1)%2][y][x].getIsReal()){
-            ret++;
+            thisMine.setNeighborMineCoord(new MineCoord(x, y, (z+1)%2));
         }
-
-        return ret;
     }
 
 
@@ -156,7 +167,8 @@ public class MinesContainer {
         for(int i = 0; i != 2; i++){
             for(int ii = 0; ii != height; ii++){
                 for(int iii = 0; iii != width; iii++){
-                    mines[i][ii][iii].setFactorized(getNumberOfNeighbors(i, ii, iii));
+                    setMineNeighbors(i,ii,iii);
+                    mines[i][ii][iii].setFactorized();
                 }
             }
         }
