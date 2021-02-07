@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 30
     defaultConfig {
         applicationId "cos.premy.mines"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 5
-        versionName '1.4'
+        targetSdkVersion 30
+        versionCode 6
+        versionName '1.4.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -19,7 +19,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        };
     }
     externalNativeBuild {
         cmake {
