@@ -13,11 +13,6 @@ import cos.premy.mines.graphics.GameActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-
     private Button start5x5;
     private Button start8x8;
     private Button start10x10;
@@ -129,16 +124,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(LoadedGame.mainActivity);
                 StringBuilder message = new StringBuilder();
-                dlgAlert.setMessage("Nobody knows! (Přemysl Šťastný) \n \nPS: You can try using double tap and long press.");
+                dlgAlert.setMessage("Nobody knows! \n \nPS: You can try using double tap and long press.");
                 dlgAlert.setTitle("How to play?");
                 dlgAlert.create().show();
             }
         });
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 }
+
