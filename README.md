@@ -8,12 +8,15 @@ There are 5 modes with possible extension.
   4) 12x12x2 with 50 mines
   5) 15x15x2 with 90 mines
 
-## Google Play
-The application is published in Google Play. After any significant change the project is rebuilt and updated.
-https://play.google.com/store/apps/details?id=cos.premy.mines&hl=en
+## Installation
 
-## FDroid
-Mines3D is also published on FDroid. See https://f-droid.org/packages/cos.premy.mines/
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" 
+alt="Download from Google Play" 
+height="80">](https://play.google.com/store/apps/details?id=cos.premy.mines&hl=en)
+[<img src="https://f-droid.org/badge/get-it-on.png"
+alt="Get it on F-Droid"
+height="80">](https://f-droid.org/packages/cos.premy.mines/)
+
 
 ## Development
 ### Prerequisites
