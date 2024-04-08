@@ -18,9 +18,9 @@ alt="Get it on F-Droid"
 height="80">](https://f-droid.org/packages/cos.premy.mines/)
 
 ## Screenshots
-[<img height="500" src="https://github.com/stastnypremysl/Mines3D/blob/master/metadata/en-US/images/phoneScreenshots/1_en-US.png?raw=true">]()
-[<img height="500" src="https://github.com/stastnypremysl/Mines3D/blob/master/metadata/en-US/images/phoneScreenshots/2_en-US.png?raw=true"/>]()
-[<img height="500" src="https://github.com/stastnypremysl/Mines3D/blob/master/metadata/en-US/images/phoneScreenshots/4_en-US.png?raw=true"/>]()
+[<img height="400" src="https://github.com/stastnypremysl/Mines3D/blob/master/metadata/en-US/images/phoneScreenshots/1_en-US.png?raw=true">]()
+[<img height="400" src="https://github.com/stastnypremysl/Mines3D/blob/master/metadata/en-US/images/phoneScreenshots/2_en-US.png?raw=true"/>]()
+[<img height="400" src="https://github.com/stastnypremysl/Mines3D/blob/master/metadata/en-US/images/phoneScreenshots/4_en-US.png?raw=true"/>]()
 
 More screenshots can be found in [this folder](https://github.com/stastnypremysl/Mines3D/tree/master/metadata/en-US/images/phoneScreenshots).
 
