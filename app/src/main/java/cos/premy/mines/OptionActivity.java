@@ -32,7 +32,7 @@ public class OptionActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Options");
+        getSupportActionBar().setTitle(R.string.options);
 
         hardcore = findViewById(R.id.mode);
         color = findViewById(R.id.color);

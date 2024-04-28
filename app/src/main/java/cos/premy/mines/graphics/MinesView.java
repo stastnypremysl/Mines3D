@@ -56,19 +56,16 @@ public class MinesView extends View {
                 AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(LoadedGame.mainActivity);
                 StringBuilder message = new StringBuilder();
                 if(status.hasUserWon()){
-                    message.append("Congratulations! You have won!\n");
+                    message.append(getResources().getString(R.string.you_have_won));
                 } else {
-                    message.append("You have lost.\n");
+                    message.append(getResources().getString(R.string.you_have_lost));
                 }
-                message.append("Correctly placed mines/placed mines/opened fields/number of mines: ");
-                message.append(String.format("%d/%d/%d/%d\n", minesContainer.getOkBlockedMines(),
+                message.append(getResources().getString(R.string.game_ended_stats, minesContainer.getOkBlockedMines(),
                         minesContainer.getMinesBlocked(), minesContainer.getMinesOpened(), minesContainer.getMinesNumber()));
 
-                message.append("Game time: ");
                 double diff = (double)status.getEndTime().getTime() - status.getStartTime().getTime();
                 diff = diff/1000;
-                message.append(diff);
-                message.append(" seconds");
+                message.append(getResources().getString(R.string.game_time, diff));
 
                 Activity activity = (Activity)getContext();
                 String preferenceName = String.format("cos.premy.mines.%d.%d.%d",
@@ -78,16 +75,14 @@ public class MinesView extends View {
                 if(status.hasUserWon() && (lowest == -1 || lowest > diff)){
                     sharedPref.edit().putFloat("lowestTime", (float)diff).commit();
                     ReviewReminder.setReadyForReview(LoadedGame.mainActivity);
-                    message.append("\nNew record!");
+                    message.append(getResources().getString(R.string.new_record));
                 }
                 if(lowest != -1){
-                    message.append("\nThe last record: ");
-                    message.append(lowest);
-                    message.append(" seconds");
+                    message.append(getResources().getString(R.string.last_record, lowest));
                 }
 
                 dlgAlert.setMessage(message.toString());
-                dlgAlert.setTitle("Game over");
+                dlgAlert.setTitle(getResources().getString(R.string.game_over));
                 dlgAlert.create().show();
             }
         });
@@ -96,7 +91,7 @@ public class MinesView extends View {
 
         grid = new Grid(minesContainer, gameStatus);
         switchButton = new SwitchButton(gameStatus);
-        statusLabel = new StatusLabel(minesContainer, gameStatus);
+        statusLabel = new StatusLabel(context, minesContainer, gameStatus);
 
         drawable = new Vector<>();
         drawable.add(grid);

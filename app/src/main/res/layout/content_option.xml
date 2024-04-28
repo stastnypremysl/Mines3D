@@ -36,32 +36,32 @@
                     android:id="@+id/mode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textOff="EASY-MODE"
-                    android:textOn="HARDCORE-MODE" />
+                    android:textOff="@string/mode_easy"
+                    android:textOn="@string/mode_hardcore" />
 
                 <ToggleButton
                     android:id="@+id/color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ToggleButton"
-                    android:textOff="Black &amp; White"
-                    android:textOn="Colors" />
+                    android:textOff="@string/black_and_white"
+                    android:textOn="@string/colors" />
 
                 <ToggleButton
                     android:id="@+id/numberType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ToggleButton"
-                    android:textOff="LINE"
-                    android:textOn="NUMBER" />
+                    android:textOff="@string/number_type_line"
+                    android:textOn="@string/number_type_number" />
 
                 <ToggleButton
                     android:id="@+id/flood"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ToggleButton"
-                    android:textOff="Manual Flood"
-                    android:textOn="Auto Flood" />
+                    android:textOff="@string/flood_manual"
+                    android:textOn="@string/flood_auto" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

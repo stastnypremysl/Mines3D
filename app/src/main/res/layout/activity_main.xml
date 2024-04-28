@@ -46,31 +46,31 @@
                     android:id="@+id/start5x5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Start 5x5" />
+                    android:text="@string/start_5x5" />
 
                 <Button
                     android:id="@+id/start8x8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Start 8x8" />
+                    android:text="@string/start_8x8" />
 
                 <Button
                     android:id="@+id/start10x10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Start 10x10" />
+                    android:text="@string/start_10x10" />
 
                 <Button
                     android:id="@+id/start12x12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Start 12x12" />
+                    android:text="@string/start_12x12" />
 
                 <Button
                     android:id="@+id/start15x15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Start 15x15" />
+                    android:text="@string/start_15x15" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -81,13 +81,13 @@
                     android:id="@+id/options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Options" />
+                    android:text="@string/options" />
 
                 <Button
                     android:id="@+id/howToPlay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How to play?" />
+                    android:text="@string/how_to_play" />
 
             </LinearLayout>
 

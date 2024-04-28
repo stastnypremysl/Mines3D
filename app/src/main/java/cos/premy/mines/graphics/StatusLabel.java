@@ -1,11 +1,13 @@
 package cos.premy.mines.graphics;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 
 import cos.premy.mines.GameStatus;
+import cos.premy.mines.R;
 import cos.premy.mines.data.MinesContainer;
 
 /**
@@ -17,10 +19,12 @@ public class StatusLabel extends AbstractDrawable {
     private final MinesContainer minesContainer;
 
     private final Paint paint;
+    private final Context context;
 
-    public StatusLabel(MinesContainer minesContainer, GameStatus status){
+    public StatusLabel(Context context, MinesContainer minesContainer, GameStatus status){
         super(status);
         this.minesContainer = minesContainer;
+        this.context = context;
 
         paint = new Paint();
         paint.setColor(Color.WHITE);
@@ -33,7 +37,8 @@ public class StatusLabel extends AbstractDrawable {
     public void draw(Canvas canvas) {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("Time: ");
+        builder.append(context.getString(R.string.time));
+	builder.append(" ");
         long delta = System.currentTimeMillis() - gameStatus.getStartTime().getTime();
         double reducedDelta = delta;
         reducedDelta /= 1000;
@@ -43,7 +48,8 @@ public class StatusLabel extends AbstractDrawable {
         canvas.drawText(toWrite, x, y, paint);
 
         builder = new StringBuilder();
-        builder.append("Mines blocked: ");
+        builder.append(context.getString(R.string.mines_blocked));
+	builder.append(" ");
         builder.append(minesContainer.getMinesBlocked());
         builder.append("/");
         builder.append(minesContainer.getMinesNumber());
