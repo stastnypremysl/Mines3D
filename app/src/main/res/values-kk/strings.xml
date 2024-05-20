@@ -1,0 +1,32 @@
+<resources>
+    <string name="start_5x5">5x5 алаңда ойнау</string>
+    <string name="start_8x8">8x8 алаңда ойнау</string>
+    <string name="start_10x10">10x10 алаңда ойнау</string>
+    <string name="start_12x12">12x12 алаңда ойнау</string>
+    <string name="start_15x15">15x15 алаңда ойнау</string>
+    <string name="options">Баптау</string>
+    <string name="how_to_play">Қалай ойнауға болады?</string>
+    <string name="how_to_play_hint">Ешкім білмейді! \n \nPS: Ұяшықты екі рет түртіп көріңіз немесе басып тұрыңыз.</string>
+    <string name="time">Уақыт:</string>
+    <string name="mines_blocked">Миналар:</string>
+    <string name="game_over">Ойын бітті</string>
+    <string name="you_have_won">Құтты болсын! Сіз ұттыңыз!\n</string>
+    <string name="you_have_lost">Сіз ұтылдыңыз.\n</string>
+    <string name="game_ended_stats">%1$d минаны дұрыс таптыңыз\n%2$d ұяшықты мина деп белгіледіңіз\n%3$d ұяшықты ашып тастадыңыз\nМиналар саны: %4$d\n</string>
+    <string name="game_time">Өткен уақыт: %.03f секунд</string>
+    <string name="new_record">\nЖаңа рекорд!</string>
+    <string name="last_record">\nАлдыңғы рекорд: %.03f секунд</string>
+    <string name="mode_easy">ҚИЫНДЫҚ ДЕҢГЕЙІ: ОҢАЙ</string>
+    <string name="mode_hardcore">ҚИЫНДЫҚ ДЕҢГЕЙІ: АУЫР</string>
+    <string name="black_and_white">Ақ-қара</string>
+    <string name="colors">Түсті</string>
+    <string name="number_type_line">СЫЗЫҚ ТҮРІНДЕГІ САНДАР</string>
+    <string name="number_type_number">ЦИФР ТҮРІНДЕГІ САНДАР</string>
+    <string name="flood_manual">Қолдан толтыру</string>
+    <string name="flood_auto">Автотолтыру</string>
+    <string name="rating_title">Бағалау</string>
+    <string name="rating_text">Сізге Mines3D ұнаса, оған баға берсеңіз болады. Қолдауыңызға рақмет!</string>
+    <string name="rating_button">Бағалау</string>
+    <string name="remind_me_later">Кейін еске салу</string>
+    <string name="no_thanks">Жоқ, рақмет</string>
+</resources>

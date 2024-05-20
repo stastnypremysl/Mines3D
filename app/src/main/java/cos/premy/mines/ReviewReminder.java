@@ -52,7 +52,7 @@ public class ReviewReminder {
     private void startPotentialReviewRemindingPrivate(){
         if(!getReviewed() && getReadyForReview()){
             final Dialog dialog = new Dialog(activity);
-            dialog.setTitle("Rating");
+            dialog.setTitle(R.string.rating_title);
 
             LinearLayout ll = new LinearLayout(activity);
             ll.setOrientation(LinearLayout.VERTICAL);
@@ -65,13 +65,13 @@ public class ReviewReminder {
 
 
             TextView tv = new TextView(activity);
-            tv.setText("If you enjoy using Mines3D, please take a moment to rate it. Thanks for your support!");
+            tv.setText(R.string.rating_text);
             tv.setWidth(width/2*3);
             tv.setPadding(20, 20, 20, 10);
             ll.addView(tv);
 
             Button b1 = new Button(activity);
-            b1.setText("Rating");
+            b1.setText(R.string.rating_button);
             b1.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     setReviewed();
@@ -83,7 +83,7 @@ public class ReviewReminder {
             ll.addView(b1);
 
             Button b2 = new Button(activity);
-            b2.setText("Remind me later");
+            b2.setText(R.string.remind_me_later);
             b2.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     dialog.dismiss();
@@ -93,7 +93,7 @@ public class ReviewReminder {
             ll.addView(b2);
 
             Button b3 = new Button(activity);
-            b3.setText("No, thanks");
+            b3.setText(R.string.no_thanks);
             b3.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     setReviewed();

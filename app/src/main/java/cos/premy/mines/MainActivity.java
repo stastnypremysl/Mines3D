@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(LoadedGame.mainActivity);
                 StringBuilder message = new StringBuilder();
-                dlgAlert.setMessage("Nobody knows! \n \nPS: You can try using double tap and long press.");
-                dlgAlert.setTitle("How to play?");
+                dlgAlert.setMessage(R.string.how_to_play_hint);
+                dlgAlert.setTitle(R.string.how_to_play);
                 dlgAlert.create().show();
             }
         });
