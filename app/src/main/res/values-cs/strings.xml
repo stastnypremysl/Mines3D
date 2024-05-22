@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Mines3D</string>
+    <string name="start_5x5">Zahájit hru 5x5</string>
+    <string name="start_8x8">Zahájit hru 8x8</string>
+    <string name="start_10x10">Zahájit hru 10x10</string>
+    <string name="start_12x12">Zahájit hru 12x12</string>
+    <string name="start_15x15">Zahájit hru 15x15</string>
+    <string name="options">Nastavení</string>
+    <string name="how_to_play">Jak hrát tuto hru?</string>
+    <string name="how_to_play_hint">Nikdo neví! \n \nPS: Zkus dvakrát ťuknout a dlouze stisknout.</string>
+    <string name="time">Čas:</string>
+    <string name="mines_blocked">Umístěné miny:</string>
+    <string name="game_over">Konec hry</string>
+    <string name="you_have_won">Gratulujeme! Vyhrál jsi!\n</string>
+    <string name="you_have_lost">Prohrál jsi.\n</string>
+    <string name="game_ended_stats">Správně umístěné miny: %1$d\nUmístěné miny: %2$d\nOtevřená pole: %3$d\nPočet min: %4$d\n</string>
+    <string name="game_time">Čas hry: %.03f sekund</string>
+    <string name="new_record">\nNový rekord!</string>
+    <string name="last_record">\nPoslední rekord: %.03f sekund</string>
+    <string name="mode_easy">ÚROVEŇ OBTÍŽNOSTI: SNADNÁ</string>
+    <string name="mode_hardcore">ÚROVEŇ OBTÍŽNOSTI: TĚŽKÁ</string>
+    <string name="black_and_white">Černá &amp; Bílá</string>
+    <string name="colors">Barvy</string>
+    <string name="number_type_line">ČÁRKY</string>
+    <string name="number_type_number">ČÍSLA</string>
+    <string name="flood_manual">Ruční plnění</string>
+    <string name="flood_auto">Automatické plnění</string>
+    <string name="rating_title">Hodnocení</string>
+    <string name="rating_text">Pokud se ti líbí hra Mines3D, prosím ohodnoť ji. Děkujeme za podporu!</string>
+    <string name="rating_button">Hodnocení</string>
+    <string name="remind_me_later">Možná později</string>
+    <string name="no_thanks">Ne, děkuji</string>
+</resources>
