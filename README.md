@@ -1,5 +1,5 @@
 # Mines3D
-Minesweeper on n\*m\*2 matrix for Android. The goal of the game is to find all of mines and mark them with a long press. When you double-tap on field without a mine[x, y, z], you will get the number of mines in neighbor fields (if they exist) [(x-1), y, z], [(x+1), y, z], [x, (y-1), z], [x, (y+1), z], [x, y, (z+1) mod 1]. If you double-tap on a field with mine, the game will end.
+Minesweeper on n\*m\*2 matrix for Android. The goal of the game is to find all of mines and mark them with a long press. When you double-tap on field without a mine[x, y, z], you will get the number of mines in neighbor fields (if they exist) [(x-1), y, z], [(x+1), y, z], [x, (y-1), z], [x, (y+1), z], [x, y, (z+1) mod 2]. If you double-tap on a field with a mine, the game will end.
 
 There are 5 modes with possible extensions. 
   1) 5x5x2 with 7 mines
