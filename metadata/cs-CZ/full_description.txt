@@ -1,1 +1,3 @@
-Máte rádi výzvy a máte pocit, že běžné logické hry jsou na Vás moc jednoduché? Tak to jste tady správně. První úkol je pochopit pravidla hry. Druhý je hru vyhrát.
+Máš rád výzvy a máš pocit, že běžné logické hry jsou na Tebe moc jednoduché? Tak to jsi tady správně!
+
+První úkol je pochopit pravidla hry. Druhý je hru vyhrát.
