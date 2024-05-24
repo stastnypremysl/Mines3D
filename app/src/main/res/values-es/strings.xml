@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mines3D</string>
+    <string name="action_settings">Configuración</string>
+    <string name="start_5x5">Comenzar 5x5</string>
+    <string name="start_8x8">Comenzar 8x8</string>
+    <string name="start_10x10">Comenzar 10x10</string>
+    <string name="start_12x12">Comenzar 12x12</string>
+    <string name="start_15x15">Comenzar 15x15</string>
+    <string name="options">Opciones</string>
+    <string name="how_to_play">¿Cómo jugar?</string>
+    <string name="how_to_play_hint">¡Nadie lo sabe!\n \nP.D.: Puedes probar con pulsaciones dobles y pulsaciones largas.</string>
+    <string name="time">Tiempo:</string>
+    <string name="mines_blocked">Minas colocadas:</string>
+    <string name="game_over">Fin de la partida</string>
+    <string name="you_have_won">¡Enhorabuena! ¡Has ganado!</string>
+    <string name="you_have_lost">Has perdido.\\n</string>
+    <string name="game_ended_stats">Minas colocadas correctamente: %1$d\nMinas colocadas: %2$d\nCeldas descubiertas: %3$d\nNúmero de minas: %4$d\n</string>
+    <string name="game_time">Tiempo de juego: %.03f segundos</string>
+    <string name="new_record">"\n¡Nuevo récord!"</string>
+    <string name="last_record">"\nÚltimo récord: %.03f segundos"</string>
+    <string name="mode_easy">MODO-FÁCIL</string>
+    <string name="mode_hardcore">MODO-EXTREMO</string>
+    <string name="black_and_white">Blanco y negro</string>
+    <string name="colors">Colores</string>
+    <string name="number_type_line">LÍNEA</string>
+    <string name="number_type_number">NÚMERO</string>
+    <string name="flood_manual">Descubrir manualmente</string>
+    <string name="flood_auto">Descubrir automáticamente</string>
+    <string name="rating_title">Calificación</string>
+    <string name="rating_text">Si te gusta jugar a Mines3D, tómate un momento para calificarlo, por favor. ¡Gracias por tu apoyo!</string>
+    <string name="rating_button">Calificación</string>
+    <string name="remind_me_later">Recuérdamelo más tarde</string>
+    <string name="no_thanks">No, gracias</string>
+</resources>
