@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Сапёр 3D</string>
+    <string name="action_settings">Настройки</string>
+    <string name="start_5x5">Начать 5x5</string>
+    <string name="start_8x8">Начать 8x8</string>
+    <string name="start_10x10">Начать 10x10</string>
+    <string name="start_12x12">Начать 12x12</string>
+    <string name="start_15x15">Начать 15x15</string>
+    <string name="options">Опции</string>
+    <string name="how_to_play">Как играть?</string>
+    <string name="how_to_play_hint">А никто не знает! \n \nPS: Попробуйте двойное прикосновение и длинное нажатие.</string>
+    <string name="time">Время:</string>
+    <string name="mines_blocked">Обнаружено мин:</string>
+    <string name="game_over">Игра окончена</string>
+    <string name="you_have_won">Поздравляем! Вы выйграли!\n</string>
+    <string name="you_have_lost">Вы проиграли.\n</string>
+    <string name="game_ended_stats">Правильно обнаруженных мин: %1$d\nОбнаруженных мин: %2$d\nПолей открыто: %3$d\nКоличество мин: %4$d\n</string>
+    <string name="game_time">Время игры: %.03f секунд</string>
+    <string name="new_record">\nНовый рекорд!</string>
+    <string name="last_record">\nПоследний рекорд был за: %.03f секунд</string>
+    <string name="mode_easy">ПРОСТОЙ-УРОВЕНЬ</string>
+    <string name="mode_hardcore">СЛОЖНЕЙШИЙ-УРОВЕНЬ</string>
+    <string name="black_and_white">Чёрное и Белое</string>
+    <string name="colors">Цвета</string>
+    <string name="number_type_line">ЛИНИЯ</string>
+    <string name="number_type_number">НОМЕР</string>
+    <string name="flood_manual">Ручное Наполнение</string>
+    <string name="flood_auto">Авто Наполнение</string>
+    <string name="rating_title">Рейтинг</string>
+    <string name="rating_text">If you enjoy using Mines3D, please take a moment to rate it. Thanks for your support!</string>
+    <string name="rating_text">Если вам нравится Сапёр 3D, пожалуйста поставьте ему звёздочку. Спасибо за вашу поддержку!</string>
+    <string name="rating_button">Рейтинг</string>
+    <string name="remind_me_later">Напомнить потом</string>
+    <string name="no_thanks">Нет? спасибо</string>
+</resources>
