@@ -68,8 +68,11 @@ public class MinesView extends View {
                 message.append(getResources().getString(R.string.game_time, diff));
 
                 Activity activity = (Activity)getContext();
-                String preferenceName = String.format("cos.premy.mines.%d.%d.%d",
-                        minesContainer.getHeight(), minesContainer.getWidth(), minesContainer.getMinesNumber());
+                String preferenceName = String.format("cos.premy.mines.%d.%d.%d.%d",
+                        minesContainer.getHeight(),
+                        minesContainer.getWidth(),
+                        gameStatus.getNumLevels(),
+                        minesContainer.getMinesNumber());
                 SharedPreferences sharedPref = activity.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
                 float lowest = sharedPref.getFloat("lowestTime", -1);
                 if(status.hasUserWon() && (lowest == -1 || lowest > diff)){

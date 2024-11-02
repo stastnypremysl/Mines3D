@@ -18,6 +18,7 @@ public class GameStatus {
     private boolean hasUserWon;
     private int level;
     private final Vector<LevelSwitchListener> levelSwitchListenerVector;
+    private final int numLevels;
     private final Vector<GameEndedListener> gameEndedListenerVector;
 
     private boolean useNumbers;
@@ -36,6 +37,11 @@ public class GameStatus {
         gameEndedListenerVector = new Vector<>();
 
         sharedPref = activity.getSharedPreferences("cos.premy.mines.settings", Context.MODE_PRIVATE);
+        this.numLevels = sharedPref.getInt("numLevels", 2);
+    }
+
+    public int getNumLevels(){
+        return numLevels;
     }
 
     public boolean getHardcore(){
@@ -61,8 +67,8 @@ public class GameStatus {
         }
     }
 
-    public void switchLevel(){
-        level = (level + 1) % 2;
+    public void incrementLevel(){
+        level = (level + 1) % numLevels;
         for(LevelSwitchListener listener : levelSwitchListenerVector){
             listener.levelSwitched(this);
         }
