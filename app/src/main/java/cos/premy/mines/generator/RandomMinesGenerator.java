@@ -11,13 +11,13 @@ import cos.premy.mines.data.MinesContainer;
 
 public class RandomMinesGenerator implements MinesGenerator {
     @Override
-    public MinesContainer getNewProblem(int N, int M, int minesNumber){
+    public MinesContainer getNewProblem(int N, int M, int numLevels, int minesNumber){
         try {
-            MinesContainer ret = new MinesContainer(N, M, minesNumber);
+            MinesContainer ret = new MinesContainer(N, M, numLevels, minesNumber);
             Random rand = new Random();
             int minesAdded = 0;
             while (minesAdded != minesNumber) {
-                int z = rand.nextInt(2);
+                int z = rand.nextInt(numLevels);
                 int y = rand.nextInt(N);
                 int x = rand.nextInt(M);
                 if (!ret.isRealMine(z, y, x)) {

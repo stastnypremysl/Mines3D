@@ -1,7 +1,6 @@
 package cos.premy.mines.data;
 
 import cos.premy.mines.GameStatus;
-import cos.premy.mines.MyHappyException;
 
 /**
  * Created by premy on 07.11.2017.
@@ -10,6 +9,7 @@ import cos.premy.mines.MyHappyException;
 public class MinesContainer {
     private final int height;
     private final int width;
+    private final int numLevels;
     private final int minesNumber;
     private int minesBlocked;
     /**
@@ -19,7 +19,8 @@ public class MinesContainer {
     private int minesOpened;
     private final Mine[][][] mines;
 
-    public MinesContainer(int N, int M, int minesNumber, int minesBlocked, int minesOkBlocked, int minesOpened){
+    public MinesContainer(int N, int M, int numLevels, int minesNumber, int minesBlocked, int minesOkBlocked, int minesOpened){
+        this.numLevels = numLevels;
         this.height = N;
         this.width = M;
         this.minesNumber = minesNumber;
@@ -27,8 +28,8 @@ public class MinesContainer {
         this.minesOkBlocked = minesOkBlocked;
         this.minesOpened = minesOpened;
 
-        mines = new Mine[2][][];
-        for(int i = 0; i != 2; i++){
+        mines = new Mine[numLevels][][];
+        for(int i = 0; i != numLevels; i++){
             mines[i] = new Mine[N][];
 
             for(int ii = 0; ii != N; ii++){
@@ -49,8 +50,8 @@ public class MinesContainer {
         initListeners();
     }
 
-    public MinesContainer(int N, int M, int minesNumber){
-        this(N, M, minesNumber, 0, 0, 0);
+    public MinesContainer(int N, int M, int numLevels, int minesNumber){
+        this(N, M, numLevels, minesNumber, 0, 0, 0);
     }
 
     public int getOkBlockedMines(){
@@ -70,7 +71,7 @@ public class MinesContainer {
     }
 
     private void initListeners() {
-        for (int i = 0; i != 2; i++) {
+        for (int i = 0; i != numLevels; i++) {
             for (int ii = 0; ii != height; ii++) {
                 for (int iii = 0; iii != width; iii++) {
                     mines[i][ii][iii].addMineStatusChangedListener(new MineStatusChangedListener() {
@@ -112,6 +113,21 @@ public class MinesContainer {
 
     private void setMineNeighbors(int z, int y, int x){
         Mine thisMine = mines[z][y][x];
+
+        if (z > 0) {
+            thisMine.setNeighborCoord(new MineCoord(x, y, z - 1));
+            if (mines[z - 1][y][x].getIsReal()) {
+                thisMine.setNeighborMineCoord(new MineCoord(x, y, z - 1));
+            }
+        }
+
+        if (z != numLevels - 1) {
+            thisMine.setNeighborCoord(new MineCoord(x, y, z + 1));
+            if (mines[z + 1][y][x].getIsReal()) {
+                thisMine.setNeighborMineCoord(new MineCoord(x, y, z + 1));
+            }
+        }
+
         if(y > 0){
             thisMine.setNeighborCoord(new MineCoord(x, y-1, z));
             if(mines[z][y-1][x].getIsReal()){
@@ -139,11 +155,6 @@ public class MinesContainer {
                 thisMine.setNeighborMineCoord(new MineCoord(x+1, y, z));
             }
         }
-
-        thisMine.setNeighborCoord(new MineCoord(x, y, (z+1)%2));
-        if(mines[(z+1)%2][y][x].getIsReal()){
-            thisMine.setNeighborMineCoord(new MineCoord(x, y, (z+1)%2));
-        }
     }
 
 
@@ -164,7 +175,7 @@ public class MinesContainer {
     }
 
     public void setFactorized(){
-        for(int i = 0; i != 2; i++){
+        for(int i = 0; i != numLevels; i++){
             for(int ii = 0; ii != height; ii++){
                 for(int iii = 0; iii != width; iii++){
                     setMineNeighbors(i,ii,iii);

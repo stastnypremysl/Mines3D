@@ -52,66 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initActions(){
         final Activity thisActivity = this;
-        start5x5.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(thisActivity, GameActivity.class);
-
-                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
-                boolean hardcore = LoadedGame.gameStatus.getHardcore();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(5,5,!hardcore ? 7: 7 * 3/2);
-
-                startActivity(myIntent);
-            }
-        });
-        start8x8.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(thisActivity, GameActivity.class);
-
-                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
-                boolean hardcore = LoadedGame.gameStatus.getHardcore();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(8,8,!hardcore ? 16 : 16 * 3/2);
-
-                startActivity(myIntent);
-            }
-        });
-        start10x10.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(thisActivity, GameActivity.class);
-
-                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
-                boolean hardcore = LoadedGame.gameStatus.getHardcore();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(10,10,!hardcore ? 25 : 25 * 3/2);
-
-                startActivity(myIntent);
-            }
-        });
-        start12x12.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(thisActivity, GameActivity.class);
-
-                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
-                boolean hardcore = LoadedGame.gameStatus.getHardcore();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(12,12,!hardcore ? 50 : 50 * 3/2);
-
-                startActivity(myIntent);
-            }
-        });
-        start15x15.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(thisActivity, GameActivity.class);
-
-                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
-                boolean hardcore = LoadedGame.gameStatus.getHardcore();
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(15,15,!hardcore ? 90 : 90 * 3/2);
-
-                startActivity(myIntent);
-            }
-        });
+        
+        start5x5.setOnClickListener(createGameStartListener(thisActivity, 5, 7));
+        start8x8.setOnClickListener(createGameStartListener(thisActivity, 8, 16));
+        start10x10.setOnClickListener(createGameStartListener(thisActivity, 10, 25));
+        start12x12.setOnClickListener(createGameStartListener(thisActivity, 12, 50));
+        start15x15.setOnClickListener(createGameStartListener(thisActivity, 15, 90));
+        
         options.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -119,16 +66,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        
         howToPlay.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(LoadedGame.mainActivity);
-                StringBuilder message = new StringBuilder();
+                AlertDialog.Builder dlgAlert = new AlertDialog.Builder(LoadedGame.mainActivity);
                 dlgAlert.setMessage(R.string.how_to_play_hint);
                 dlgAlert.setTitle(R.string.how_to_play);
                 dlgAlert.create().show();
             }
         });
+    }
+
+    private View.OnClickListener createGameStartListener(final Activity activity, final int gridSize, final int baseMines) {
+        return new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(activity, GameActivity.class);
+
+                LoadedGame.gameStatus = new GameStatus(LoadedGame.mainActivity);
+                boolean hardcore = LoadedGame.gameStatus.getHardcore();
+                int numLevels = LoadedGame.gameStatus.getNumLevels();
+                int mines = (int) (baseMines * (hardcore ? 1.5f : 1) * numLevels / 2);
+                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(gridSize, gridSize, numLevels, mines);
+
+                startActivity(myIntent);
+            }
+        };
     }
 
 }
