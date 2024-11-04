@@ -49,7 +49,8 @@ public class Grid extends AbstractDrawable {
         for(int i = 0; i != mineFields.length; i++){
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
-                    mineFields[i][ii][iii].setTwin(mineFields[(i+1)%2][ii][iii]);
+                    MineField prevLevelMine = mineFields[(i + mineFields.length - 1) % mineFields.length][ii][iii];
+                    mineFields[i][ii][iii].setTwin(prevLevelMine);
                 }
             }
         }
