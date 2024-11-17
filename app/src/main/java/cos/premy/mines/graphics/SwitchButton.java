@@ -34,7 +34,6 @@ public class SwitchButton extends AbstractDrawable {
         leftTop_____midTop_____rightTop
         |                            |
         leftBot_____midBot_____rightBot
-
         */
 
         Point leftTop = new Point(0, 0);
@@ -46,14 +45,13 @@ public class SwitchButton extends AbstractDrawable {
 
         /* Lines
 
-        |--------------|      |--------------|      |--------------|
-        | \back       /|      | slashLeft  / |      | \  backRight |
-        |    \     /   |      |    /      /  |      |  \       \   |
-        |       X      |      |   /      /   |      |   \       \  |
-        |    /     \   |      |  /      /    |      |    \       \ |
-        | /slash      \|      | /  slashRight|      | backLeft    \|
-        |--------------|      |--------------|      |--------------|
-
+        |\-----------/|      |------/------/|      |\------\------|
+        | back     /  |      | slashLeft  / |      | \  backRight |
+        |    \   /    |      |    /      /  |      |  \      \    |
+        |      X      |      |   /      /   |      |   \      \   |
+        |    /   \    |      |  /      /    |      |    \      \  |
+        | slash    \  |      | /  slashRight|      | backLeft   \ |
+        |/-----------\|      |/------/------|      |------\------\|
          */
 
         Line leftSide = new Line(leftTop, leftBot);
