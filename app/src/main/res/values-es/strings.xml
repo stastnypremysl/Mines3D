@@ -14,7 +14,7 @@
     <string name="mines_blocked">Minas colocadas:</string>
     <string name="game_over">Fin de la partida</string>
     <string name="you_have_won">¡Enhorabuena! ¡Has ganado!</string>
-    <string name="you_have_lost">Has perdido.\\n</string>
+    <string name="you_have_lost">Has perdido.\n</string>
     <string name="game_ended_stats">Minas colocadas correctamente: %1$d\nMinas colocadas: %2$d\nCeldas descubiertas: %3$d\nNúmero de minas: %4$d\n</string>
     <string name="game_time">Tiempo de juego: %.03f segundos</string>
     <string name="new_record">"\n¡Nuevo récord!"</string>

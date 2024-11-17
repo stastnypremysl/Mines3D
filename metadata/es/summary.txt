@@ -1,1 +1,1 @@
-Busca minas
+Buscaminas en una matriz n*m*2
