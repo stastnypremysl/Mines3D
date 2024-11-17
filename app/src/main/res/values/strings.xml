@@ -33,4 +33,5 @@
     <string name="rating_button">Rating</string>
     <string name="remind_me_later">Remind me later</string>
     <string name="no_thanks">No, thanks</string>
+    <string name="number_levels">Select number of levels (z-coordinate) from 2 to 8</string>
 </resources>

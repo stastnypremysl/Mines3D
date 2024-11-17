@@ -62,6 +62,21 @@
                     android:text="ToggleButton"
                     android:textOff="@string/flood_manual"
                     android:textOn="@string/flood_auto" />
+
+                <TextView
+                    android:id="@+id/labelNumLevels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/number_levels" />
+
+                <SeekBar
+                    android:id="@+id/numLevels"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="6"
+                    android:progress="0" />
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

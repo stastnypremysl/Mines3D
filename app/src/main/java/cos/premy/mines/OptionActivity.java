@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class OptionActivity extends AppCompatActivity {
     private ToggleButton color;
     private ToggleButton numberType;
     private ToggleButton flood;
+    private SeekBar numLevels;
     private SharedPreferences sharedPref;
 
 
@@ -38,6 +40,7 @@ public class OptionActivity extends AppCompatActivity {
         color = findViewById(R.id.color);
         numberType = findViewById(R.id.numberType);
         flood = findViewById(R.id.flood);
+        numLevels = findViewById(R.id.numLevels);
 
         if(sharedPref.getBoolean("hardcore", false)){
             hardcore.toggle();
@@ -99,6 +102,23 @@ public class OptionActivity extends AppCompatActivity {
             }
         });
 
+        numLevels.setProgress(sharedPref.getInt("numLevels", 2) - 2);
+        numLevels.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                sharedPref.edit().putInt("numLevels", i + 2).commit();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
 }

@@ -34,8 +34,8 @@ public class Grid extends AbstractDrawable {
         N = container.getHeight();
         M = container.getWidth();
 
-        mineFields = new MineField[2][][];
-        for(int i = 0; i != 2; i++){
+        mineFields = new MineField[gameStatus.getNumLevels()][][];
+        for(int i = 0; i != mineFields.length; i++){
             mineFields[i] = new MineField[N][];
             for(int ii = 0; ii != N; ii++){
                 mineFields[i][ii] = new MineField[M];
@@ -46,10 +46,11 @@ public class Grid extends AbstractDrawable {
             }
         }
 
-        for(int i = 0; i != 2; i++){
+        for(int i = 0; i != mineFields.length; i++){
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
-                    mineFields[i][ii][iii].setTwin(mineFields[(i+1)%2][ii][iii]);
+                    MineField prevLevelMine = mineFields[(i + mineFields.length - 1) % mineFields.length][ii][iii];
+                    mineFields[i][ii][iii].setTwin(prevLevelMine);
                 }
             }
         }
@@ -86,7 +87,7 @@ public class Grid extends AbstractDrawable {
     @Override
     public void setPosition(int x, int width, int y, int height) {
         super.setPosition(x, width, y, height);
-        for(int i = 0; i != 2; i++){
+        for(int i = 0; i != mineFields.length; i++){
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
                     mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
