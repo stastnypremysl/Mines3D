@@ -44,7 +44,6 @@ public class SwitchButton extends AbstractDrawable {
         Point rightBot = new Point(baseSize, baseSize);
 
         /* Lines
-
         |\-----------/|      |------/------/|      |\------\------|
         | back     /  |      | slashLeft  / |      | \  backRight |
         |    \   /    |      |    /      /  |      |  \      \    |
