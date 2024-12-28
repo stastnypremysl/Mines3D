@@ -30,4 +30,6 @@
     <string name="rating_button">Hodnocení</string>
     <string name="remind_me_later">Možná později</string>
     <string name="no_thanks">Ne, děkuji</string>
+    <string name="number_levels">Vyberte počet úrovní (souřadnice z) od 2 do 8</string>
+    <string name="level">Úroveň:</string>
 </resources>

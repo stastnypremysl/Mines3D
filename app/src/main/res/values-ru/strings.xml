@@ -29,4 +29,6 @@
     <string name="rating_button">Рейтинг</string>
     <string name="remind_me_later">Напомнить позже</string>
     <string name="no_thanks">Нет, спасибо</string>
+    <string name="number_levels">Выберите количество уровней (координата z) от 2 до 8</string>
+    <string name="level">Уровень:</string>
 </resources>

@@ -29,4 +29,6 @@
     <string name="rating_button">Бағалау</string>
     <string name="remind_me_later">Кейін еске салу</string>
     <string name="no_thanks">Жоқ, рақмет</string>
+    <string name="number_levels">Деңгейлер санын (z-координат) 2-ден 8-ге дейін таңдаңыз</string>
+    <string name="level">Деңгей:</string>
 </resources>

@@ -7,5 +7,5 @@ import cos.premy.mines.data.MinesContainer;
  */
 
 public interface MinesGenerator {
-    public MinesContainer getNewProblem(int N, int M, int minesNumber);
+    public MinesContainer getNewProblem(int N, int M, int numLevels, int minesNumber);
 }

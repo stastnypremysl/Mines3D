@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import cos.premy.mines.GameStatus;
+import cos.premy.mines.LevelSwitchListener;
 import cos.premy.mines.data.MinesContainer;
 import cos.premy.mines.data.MineCoord;
 
@@ -26,16 +27,27 @@ public class Grid extends AbstractDrawable {
         super(gameStatus);
         this.container = container;
 
+        N = container.getHeight();
+        M = container.getWidth();
+        mineFields = new MineField[gameStatus.getNumLevels()][][];
+
+        gameStatus.addLevelSwitchListener(status -> {
+            for(int i = 0; i != mineFields.length; i++){;
+                for(int ii = 0; ii != N; ii++){
+                    for(int iii = 0; iii != M; iii++){
+                        MineField prevLevelMine = mineFields[gameStatus.getLastLevel()][ii][iii];
+                        mineFields[i][ii][iii].setPreviousMineField(prevLevelMine);
+                    }
+                }
+            }
+        });
+
         paintLine = new Paint();
         paintLine.setAntiAlias(true);
         paintLine.setARGB(255,255,255,255);
         paintLine.setStrokeWidth(4F);
 
-        N = container.getHeight();
-        M = container.getWidth();
-
-        mineFields = new MineField[2][][];
-        for(int i = 0; i != 2; i++){
+        for(int i = 0; i != mineFields.length; i++){
             mineFields[i] = new MineField[N][];
             for(int ii = 0; ii != N; ii++){
                 mineFields[i][ii] = new MineField[M];
@@ -46,13 +58,6 @@ public class Grid extends AbstractDrawable {
             }
         }
 
-        for(int i = 0; i != 2; i++){
-            for(int ii = 0; ii != N; ii++){
-                for(int iii = 0; iii != M; iii++){
-                    mineFields[i][ii][iii].setTwin(mineFields[(i+1)%2][ii][iii]);
-                }
-            }
-        }
     }
 
     public void autoFlood(Vector<MineCoord> floodTargets) {
@@ -86,7 +91,7 @@ public class Grid extends AbstractDrawable {
     @Override
     public void setPosition(int x, int width, int y, int height) {
         super.setPosition(x, width, y, height);
-        for(int i = 0; i != 2; i++){
+        for(int i = 0; i != mineFields.length; i++){
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
                     mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
