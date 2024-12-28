@@ -6,8 +6,8 @@ android {
         applicationId "cos.premy.mines"
         minSdkVersion 19
         targetSdkVersion 34
-        versionCode 12
-        versionName '1.5.2'
+        versionCode 13
+        versionName '1.6.0'
         namespace 'cos.premy.mines'
     }
     buildTypes {
