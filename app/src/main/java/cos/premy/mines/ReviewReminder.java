@@ -67,7 +67,7 @@ public class ReviewReminder {
             TextView tv = new TextView(activity);
             tv.setText(R.string.rating_text);
             tv.setWidth(width/2*3);
-            tv.setPadding(20, 20, 20, 10);
+            tv.setPadding(50, 50, 50, 50);
             ll.addView(tv);
 
             Button b1 = new Button(activity);
@@ -79,7 +79,7 @@ public class ReviewReminder {
                     dialog.dismiss();
                 }
             });
-            b1.setPadding(20, 20, 20, 10);
+            b1.setPadding(50, 20, 50, 10);
             ll.addView(b1);
 
             Button b2 = new Button(activity);
@@ -89,7 +89,7 @@ public class ReviewReminder {
                     dialog.dismiss();
                 }
             });
-            b2.setPadding(20, 20, 20, 10);
+            b2.setPadding(50, 20, 50, 10);
             ll.addView(b2);
 
             Button b3 = new Button(activity);
@@ -100,7 +100,7 @@ public class ReviewReminder {
                     dialog.dismiss();
                 }
             });
-            b3.setPadding(20, 20, 20, 10);
+            b3.setPadding(50, 20, 50, 10);
             ll.addView(b3);
 
             dialog.setContentView(ll);

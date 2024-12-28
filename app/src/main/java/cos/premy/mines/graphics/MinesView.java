@@ -57,6 +57,7 @@ public class MinesView extends View {
                 StringBuilder message = new StringBuilder();
                 if(status.hasUserWon()){
                     message.append(getResources().getString(R.string.you_have_won));
+                    ReviewReminder.setReadyForReview(LoadedGame.mainActivity);
                 } else {
                     message.append(getResources().getString(R.string.you_have_lost));
                 }
@@ -77,7 +78,6 @@ public class MinesView extends View {
                 float lowest = sharedPref.getFloat("lowestTime", -1);
                 if(status.hasUserWon() && (lowest == -1 || lowest > diff)){
                     sharedPref.edit().putFloat("lowestTime", (float)diff).commit();
-                    ReviewReminder.setReadyForReview(LoadedGame.mainActivity);
                     message.append(getResources().getString(R.string.new_record));
                 }
                 if(lowest != -1){
