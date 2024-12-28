@@ -32,4 +32,6 @@
     <string name="rating_button">Calificación</string>
     <string name="remind_me_later">Recuérdamelo más tarde</string>
     <string name="no_thanks">No, gracias</string>
+    <string name="number_levels">Seleccione el número de niveles (coordenada z) de 2 a 8</string>
+    <string name="level">Nivel:</string>
 </resources>

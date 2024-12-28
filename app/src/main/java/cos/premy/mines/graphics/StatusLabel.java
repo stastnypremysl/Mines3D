@@ -57,6 +57,16 @@ public class StatusLabel extends AbstractDrawable {
         toWrite = builder.toString();
         canvas.drawText(toWrite, x, y + fontSize, paint);
 
+        builder = new StringBuilder();
+        builder.append(context.getString(R.string.level));
+        builder.append(" ");
+        builder.append(gameStatus.getLevel() + 1);
+        builder.append("/");
+        builder.append(gameStatus.getNumLevels());
+
+        toWrite = builder.toString();
+        canvas.drawText(toWrite, x, y + fontSize*2, paint);
+
     }
 
     @Override

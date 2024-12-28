@@ -20,7 +20,7 @@ import cos.premy.mines.graphics.animations.Point;
 public class MineField extends AbstractDrawable {
     private final Grid grid;
     private final Mine data;
-    private MineField twin;
+    private MineField previousMineField;
 
     private Line[] crossLines;
     private Line[] minesLines;
@@ -300,8 +300,8 @@ public class MineField extends AbstractDrawable {
         }
     }
 
-    public void setTwin(MineField twin){
-        this.twin = twin;
+    public void setPreviousMineField(MineField previousMineField){
+        this.previousMineField = previousMineField;
     }
 
     private void refreshAnimations(){
@@ -316,12 +316,12 @@ public class MineField extends AbstractDrawable {
 
     private void downloadAnimationStartsFromTwin(){
         for(int i = 0; i != 2; i++){
-            crossLinesAnimation[i].setStartLine(twin.getCrossLinesAnimation()[i].getLine());
+            crossLinesAnimation[i].setStartLine(previousMineField.getCrossLinesAnimation()[i].getLine());
             crossLinesAnimation[i].startAnimation();
         }
 
         for(int i = 0; i != 5; i++){
-            minesLinesAnimation[i].setStartLine(twin.getMinesLinesAnimation()[i].getLine());
+            minesLinesAnimation[i].setStartLine(previousMineField.getMinesLinesAnimation()[i].getLine());
             minesLinesAnimation[i].startAnimation();
         }
     }

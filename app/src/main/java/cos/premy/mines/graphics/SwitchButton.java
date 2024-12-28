@@ -18,6 +18,7 @@ public class SwitchButton extends AbstractDrawable {
 
     private Line[][] baseLines = null;
     private LineAnimation[][] crossLines = null;
+    private LineAnimation[][] inverseCrossLines = null;
     private LineAnimation[] currentAnimatingLines = null;
 
     private static final int baseSize = 100;
@@ -95,6 +96,7 @@ public class SwitchButton extends AbstractDrawable {
         assert numLevels <= 8 : "Number of levels (z-coordinate) is not supported by this button.";
         baseLines = new Line[numLines][numLevels];
         crossLines = new LineAnimation[numLines][numLevels];
+        inverseCrossLines = new LineAnimation[numLines][numLevels];
         currentAnimatingLines = new LineAnimation[numLines];
 
         for (int i = 0; i < numLevels - 1; i++) {
@@ -137,6 +139,9 @@ public class SwitchButton extends AbstractDrawable {
             for (int j = 0; j < numLevels; j++) {
                 crossLines[i][j] = new LinearLineAnimation(lines[i][(j - 1 + numLevels) % numLevels], lines[i][j], 200);
             }
+            for (int j = 0; j < numLevels; j++) {
+                inverseCrossLines[i][j] = new LinearLineAnimation(lines[i][(j + 1) % numLevels], lines[i][j], 200);
+            }
         }
 
         for (int i = 0; i < lines.length; i++) {
@@ -147,10 +152,38 @@ public class SwitchButton extends AbstractDrawable {
 
     @Override
     protected void sendVerifiedTap(int x, int y) {
+        double relative;
+        if (width > height) {
+            relative = (double) (y - this.y) / height;
+        }  else {
+            relative = (double) (x - this.x) / width;
+        }
+
+        if (relative < 0.5) {
+            incrementLevel();
+        } else {
+            decrementLevel();
+        }
+    }
+
+    private void incrementLevel(){
         gameStatus.incrementLevel();
         int currentLevel = gameStatus.getLevel();
+
         for (int i = 0; i < crossLines.length; i++) {
             LineAnimation[] crossLine = crossLines[i];
+            LineAnimation anim = crossLine[currentLevel];
+            anim.startAnimation();
+            currentAnimatingLines[i] = anim;
+        }
+    }
+
+    private void decrementLevel(){
+        gameStatus.decrementLevel();
+        int currentLevel = gameStatus.getLevel();
+
+        for (int i = 0; i < crossLines.length; i++) {
+            LineAnimation[] crossLine = inverseCrossLines[i];
             LineAnimation anim = crossLine[currentLevel];
             anim.startAnimation();
             currentAnimatingLines[i] = anim;
