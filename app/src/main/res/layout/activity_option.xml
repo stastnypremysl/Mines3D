@@ -20,8 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        layout="@layout/content_option"
-        android:layout_width="match_parent" />
+    <include layout="@layout/content_option" />
 
 </android.support.design.widget.CoordinatorLayout>
