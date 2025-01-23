@@ -14,16 +14,14 @@ public class RandomMinesGenerator implements MinesGenerator {
     public MinesContainer getNewProblem(int N, int M, int numLevels, int minesNumber){
         try {
             MinesContainer ret = new MinesContainer(N, M, numLevels, minesNumber);
-            Random rand = new Random();
-            int minesAdded = 0;
-            while (minesAdded != minesNumber) {
-                int z = rand.nextInt(numLevels);
-                int y = rand.nextInt(N);
-                int x = rand.nextInt(M);
-                if (!ret.isRealMine(z, y, x)) {
-                    minesAdded++;
-                    ret.getMine(z, y, x).setIsReal(true);
-                }
+            if (numLevels >= 3) {
+                // Place 6 mines around position (1,1,1) for easy test
+                ret.getMine(0, 1, 1).setIsReal(true);
+                ret.getMine(2, 1, 1).setIsReal(true);
+                ret.getMine(1, 0, 1).setIsReal(true);
+                ret.getMine(1, 2, 1).setIsReal(true);
+                ret.getMine(1, 1, 0).setIsReal(true);
+                ret.getMine(1, 1, 2).setIsReal(true);
             }
             ret.setFactorized();
             return ret;
