@@ -28,12 +28,9 @@ public class MinesContainer {
         this.minesOkBlocked = minesOkBlocked;
         this.minesOpened = minesOpened;
 
-        mines = new Mine[numLevels][][];
+        mines = new Mine[numLevels][N][M];
         for(int i = 0; i != numLevels; i++){
-            mines[i] = new Mine[N][];
-
             for(int ii = 0; ii != N; ii++){
-                mines[i][ii] = new Mine[M];
                 for(int iii = 0; iii != M; iii++){
                     mines[i][ii][iii] = new Mine();
                     //DEBUG
