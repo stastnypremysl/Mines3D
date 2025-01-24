@@ -29,7 +29,7 @@ public class Grid extends AbstractDrawable {
 
         N = container.getHeight();
         M = container.getWidth();
-        mineFields = new MineField[gameStatus.getNumLevels()][][];
+        mineFields = new MineField[gameStatus.getNumLevels()][N][M];
 
         gameStatus.addLevelSwitchListener(status -> {
             for(int i = 0; i != mineFields.length; i++){;
@@ -48,9 +48,7 @@ public class Grid extends AbstractDrawable {
         paintLine.setStrokeWidth(4F);
 
         for(int i = 0; i != mineFields.length; i++){
-            mineFields[i] = new MineField[N][];
             for(int ii = 0; ii != N; ii++){
-                mineFields[i][ii] = new MineField[M];
                 for(int iii = 0; iii != M; iii++){
                     mineFields[i][ii][iii] = new MineField(this, container.getMine(i, ii, iii), gameStatus, i);
                     mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
