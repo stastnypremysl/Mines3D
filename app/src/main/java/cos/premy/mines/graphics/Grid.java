@@ -6,9 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import cos.premy.mines.GameStatus;
-import cos.premy.mines.LevelSwitchListener;
 import cos.premy.mines.data.MinesContainer;
 import cos.premy.mines.data.MineCoord;
+import cos.premy.mines.generator.RandomMinesGenerator;
 
 /**
  * Created by premy on 07.11.2017.
@@ -121,6 +121,11 @@ public class Grid extends AbstractDrawable {
 
     @Override
     public void sendVerifiedDoubleTap(int x, int y) {
+        if(!container.getFactorized()) {
+            int mineX = Math.min(M, (x - this.x) * M / width);
+            int mineY = Math.min(N, (y - this.y) * N / height);
+            new RandomMinesGenerator().populateNewProblem(container, gameStatus.getLevel(), mineY, mineX);
+        }
         int level = gameStatus.getLevel();
         for (int i = 0; i != N; i++) {
             for (int ii = 0; ii != M; ii++) {

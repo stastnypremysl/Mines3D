@@ -11,27 +11,26 @@ import cos.premy.mines.data.MinesContainer;
 
 public class RandomMinesGenerator implements MinesGenerator {
     @Override
-    public MinesContainer getNewProblem(int N, int M, int numLevels, int minesNumber){
+    public void populateNewProblem(MinesContainer container, int level, int n, int m) {
         try {
-            MinesContainer ret = new MinesContainer(N, M, numLevels, minesNumber);
+            MinesContainer con = container;
             Random rand = new Random();
             int minesAdded = 0;
-            while (minesAdded != minesNumber) {
-                int z = rand.nextInt(numLevels);
-                int y = rand.nextInt(N);
-                int x = rand.nextInt(M);
-                if (!ret.isRealMine(z, y, x)) {
+            while (minesAdded < con.getMinesNumber()) {
+                int z = rand.nextInt(con.getNumLevels());
+                int y = rand.nextInt(con.getHeight());
+                int x = rand.nextInt(con.getWidth());
+                if (!con.isRealMine(z, y, x)
+                        && !(level == z && n == y && m == x)) {
                     minesAdded++;
-                    ret.getMine(z, y, x).setIsReal(true);
+                    con.getMine(z, y, x).setIsReal(true);
                 }
             }
-            ret.setFactorized();
-            return ret;
+            container.setFactorized();
         }
         catch (MyHappyException ex){
             ex.printStackTrace();
             System.exit(1);
-            return null;
         }
     }
 }
