@@ -51,7 +51,7 @@ public class Grid extends AbstractDrawable {
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
                     mineFields[i][ii][iii] = new MineField(this, container.getMine(i, ii, iii), gameStatus, i);
-                    mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
+                    mineFields[i][ii][iii].setPosition(x + (iii * width) / M, width / M, y + (ii * height) / N, height / N);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class Grid extends AbstractDrawable {
         for(int i = 0; i != mineFields.length; i++){
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
-                    mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
+                    mineFields[i][ii][iii].setPosition(x + (iii * width) / M, width / M, y + (ii * height) / N, height / N);
                 }
             }
         }
