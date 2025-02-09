@@ -112,13 +112,12 @@ public class Grid extends AbstractDrawable {
 
     @Override
     public void sendVerifiedLongTap(int x, int y) {
-            int level = gameStatus.getLevel();
-            for (int i = 0; i != N; i++) {
-                for (int ii = 0; ii != M; ii++) {
-                    mineFields[level][i][ii].sendLongTap(x, y);
-                }
+        int level = gameStatus.getLevel();
+        for (int i = 0; i != N; i++) {
+            for (int ii = 0; ii != M; ii++) {
+                mineFields[level][i][ii].sendLongTap(x, y);
             }
-
+        }
     }
 
     @Override
