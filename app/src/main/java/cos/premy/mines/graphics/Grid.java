@@ -6,9 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import cos.premy.mines.GameStatus;
-import cos.premy.mines.LevelSwitchListener;
 import cos.premy.mines.data.MinesContainer;
 import cos.premy.mines.data.MineCoord;
+import cos.premy.mines.generator.RandomMinesGenerator;
 
 /**
  * Created by premy on 07.11.2017.
@@ -29,7 +29,7 @@ public class Grid extends AbstractDrawable {
 
         N = container.getHeight();
         M = container.getWidth();
-        mineFields = new MineField[gameStatus.getNumLevels()][][];
+        mineFields = new MineField[gameStatus.getNumLevels()][N][M];
 
         gameStatus.addLevelSwitchListener(status -> {
             for(int i = 0; i != mineFields.length; i++){;
@@ -48,12 +48,10 @@ public class Grid extends AbstractDrawable {
         paintLine.setStrokeWidth(4F);
 
         for(int i = 0; i != mineFields.length; i++){
-            mineFields[i] = new MineField[N][];
             for(int ii = 0; ii != N; ii++){
-                mineFields[i][ii] = new MineField[M];
                 for(int iii = 0; iii != M; iii++){
                     mineFields[i][ii][iii] = new MineField(this, container.getMine(i, ii, iii), gameStatus, i);
-                    mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
+                    mineFields[i][ii][iii].setPosition(x + (iii * width) / M, width / M, y + (ii * height) / N, height / N);
                 }
             }
         }
@@ -94,7 +92,7 @@ public class Grid extends AbstractDrawable {
         for(int i = 0; i != mineFields.length; i++){
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
-                    mineFields[i][ii][iii].setPosition(x + (ii * height) / N, height / N, y + (iii * width) / M, width / M);
+                    mineFields[i][ii][iii].setPosition(x + (iii * width) / M, width / M, y + (ii * height) / N, height / N);
                 }
             }
         }
@@ -122,6 +120,11 @@ public class Grid extends AbstractDrawable {
 
     @Override
     public void sendVerifiedDoubleTap(int x, int y) {
+        if(!container.getFactorized()) {
+            int mineX = Math.min(M, (x - this.x) * M / width);
+            int mineY = Math.min(N, (y - this.y) * N / height);
+            new RandomMinesGenerator().populateNewProblem(container, gameStatus.getLevel(), mineY, mineX);
+        }
         int level = gameStatus.getLevel();
         for (int i = 0; i != N; i++) {
             for (int ii = 0; ii != M; ii++) {

@@ -18,6 +18,7 @@ public class MinesContainer {
     private int minesOkBlocked;
     private int minesOpened;
     private final Mine[][][] mines;
+    private boolean factorized;
 
     public MinesContainer(int N, int M, int numLevels, int minesNumber, int minesBlocked, int minesOkBlocked, int minesOpened){
         this.numLevels = numLevels;
@@ -28,12 +29,9 @@ public class MinesContainer {
         this.minesOkBlocked = minesOkBlocked;
         this.minesOpened = minesOpened;
 
-        mines = new Mine[numLevels][][];
+        mines = new Mine[numLevels][N][M];
         for(int i = 0; i != numLevels; i++){
-            mines[i] = new Mine[N][];
-
             for(int ii = 0; ii != N; ii++){
-                mines[i][ii] = new Mine[M];
                 for(int iii = 0; iii != M; iii++){
                     mines[i][ii][iii] = new Mine();
                     //DEBUG
@@ -48,6 +46,7 @@ public class MinesContainer {
             }
         }
         initListeners();
+        factorized = false;
     }
 
     public MinesContainer(int N, int M, int numLevels, int minesNumber){
@@ -170,6 +169,10 @@ public class MinesContainer {
         return width;
     }
 
+    public int getNumLevels(){
+        return numLevels;
+    }
+
     public Mine getMine(int z, int y, int x){
         return mines[z][y][x];
     }
@@ -183,7 +186,11 @@ public class MinesContainer {
                 }
             }
         }
+        factorized = true;
     }
 
+    public boolean getFactorized() {
+        return factorized;
+    }
 
 }

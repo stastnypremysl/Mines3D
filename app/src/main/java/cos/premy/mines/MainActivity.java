@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import cos.premy.mines.generator.RandomMinesGenerator;
+import cos.premy.mines.data.MinesContainer;
 import cos.premy.mines.graphics.GameActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 boolean hardcore = LoadedGame.gameStatus.getHardcore();
                 int numLevels = LoadedGame.gameStatus.getNumLevels();
                 int mines = (int) (baseMines * (hardcore ? 1.5f : 1) * numLevels / 2);
-                LoadedGame.minesContainer = new RandomMinesGenerator().getNewProblem(gridSize, gridSize, numLevels, mines);
+                assert mines < numLevels * gridSize * gridSize;
+                LoadedGame.minesContainer = new MinesContainer(gridSize, gridSize, numLevels, mines);
 
                 startActivity(myIntent);
             }
