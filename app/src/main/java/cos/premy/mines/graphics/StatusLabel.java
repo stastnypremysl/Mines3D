@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 
 import cos.premy.mines.GameStatus;
 import cos.premy.mines.R;
@@ -30,7 +29,6 @@ public class StatusLabel extends AbstractDrawable {
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);
         paint.setTextSize(fontSize);
-        //paint.setTypeface(Typeface.create("Courier", Typeface.NORMAL));
     }
 
     @Override

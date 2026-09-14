@@ -24,11 +24,4 @@ public class MyHappyException extends Exception{
     public MyHappyException(EX_TYPES type){
         super(getMessage(type));
     }
-
-    /**
-     * Created by premy on 08.11.2017.
-     */
-
-    public static class LoadedGame {
-    }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mines3D</string>
-    <string name="action_settings">Configuración</string>
     <string name="start_5x5">Comenzar 5x5</string>
     <string name="start_8x8">Comenzar 8x8</string>
     <string name="start_10x10">Comenzar 10x10</string>
