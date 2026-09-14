@@ -26,12 +26,15 @@ More screenshots can be found in [this folder](https://github.com/stastnypremysl
 
 ## Development
 ### Prerequisites
-* Android Studio 2023.1.1
+* Android Studio 2025.1.3 (Narwhal 3 Feature Drop) or newer, i.e. Android Gradle Plugin 8.13 and JDK 17
 * A device with Android newer than 4.4
             
 ### Building and running
 Download the repository and open the root folder as a project in Android Studio. Do Grandle sync, and clean and build. 
 After that, you should be able to build it and either run it on your device or VM.
+
+From the command line, point `ANDROID_HOME` at the SDK and run `./gradlew build`, which compiles the app, runs lint and the JVM unit tests
+(`./gradlew testDebugUnitTest` runs the tests alone).
 
 ## License
 This project is licensed under the GPL-3.0 License - see [LICENSE.md](LICENSE.md) file for details
@@ -49,6 +52,7 @@ You can find here the elemental classes of the program.
  * MyHappyException - Exception class for throwing exceptions specific to this program
  * Utils - Any generally useful code
  * MainActivity - An activity class, that defines the modes of the game
+ * SystemBarsPadding - Pads the activity content by the system window insets and paints the strips behind the transparent system bars black (the window is edge-to-edge since targetSdk 35)
  * GameStatus - The status of the running game. (things like the time of a start)
 ### Package - cos.premy.mines.graphics
  * GameActivity - An activity class, which runs a game view

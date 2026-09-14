@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -15,7 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.Vector;
-import java.util.logging.Handler;
 
 import cos.premy.mines.GameEndedListener;
 import cos.premy.mines.GameStatus;

@@ -34,14 +34,6 @@ public class MinesContainer {
             for(int ii = 0; ii != N; ii++){
                 for(int iii = 0; iii != M; iii++){
                     mines[i][ii][iii] = new Mine();
-                    //DEBUG
-                    /*try {
-                        mines[i][ii][iii].setStatus(MineStatus.OPENED);
-                    }
-                    catch (MyHappyException ex){
-
-                    }*/
-                    //
                 }
             }
         }

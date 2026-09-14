@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SystemBarsPadding.apply(this);
 
         initComponents();
         initActions();
@@ -34,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         LoadedGame.mainActivity = this;
-
-        // Example of a call to a native method
-        //TextView tv = (TextView) findViewById(R.id.sample_text);
-        //tv.setText(stringFromJNI());
     }
 
     private void initComponents(){
